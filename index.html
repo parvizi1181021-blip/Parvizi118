@@ -3,30 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>شرکت پارسا هلدینگ ایرانیان | صفحه اصلی</title>
-  <meta name="description" content="شرکت پارسا هلدینگ ایرانیان — سرمایه های خود را به ما بسپارید." />
-  <meta name="keywords" content="برند, شرکت, خدمات, فروش, پشتیبانی" />
-  <meta name="theme-color" content="#0ea5e9" />
-
-  <!-- فونت فارسی Vazirmatn -->
+  <title>شرکت پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری و شهری</title>
+  <meta name="description" content="شرکت پارسا هلدینگ ایرانیان | ارائه‌دهنده خدمات تخصصی کشاورزی، دامداری، فضای سبز، خدمات شهری، آبیاری، مکانیزاسیون و برنج‌کاری و سورتینگ. سرمایه های خود را به ما بسپارید." />
+  <meta name="theme-color" content="#16a34a" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
-
   <style>
-    :root{--bg:#0b1220;--card:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--brand:#0ea5e9;--brand-2:#22d3ee;--ring:#38bdf8}
+    :root{
+      --bg:#0b1220;--card:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--brand:#16a34a;--brand-2:#22c55e;--ring:#22c55e
+    }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;scroll-behavior:smooth}
-    body{font-family:'Vazirmatn',system-ui,-apple-system,Segoe UI,Roboto; color:var(--text); background:radial-gradient(1200px 600px at 80% -10%, rgba(34,211,238,.15), transparent 60%),
-          radial-gradient(1000px 500px at 10% -10%, rgba(14,165,233,.2), transparent 60%),
-          linear-gradient(180deg, #0b1220 0%, #0b1220 100%);}  
+    body{font-family:'Vazirmatn',system-ui,-apple-system,Segoe UI,Roboto;color:var(--text);background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(34,197,94,.15), transparent 60%),
+      radial-gradient(1000px 500px at 10% -10%, rgba(34,197,94,.2), transparent 60%),
+      linear-gradient(180deg,#0b1220 0%,#0b1220 100%)}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-flex;gap:.5rem;align-items:center;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(14,165,233,.2),rgba(14,165,233,.1));
-         padding:.9rem 1.2rem;border-radius:14px;color:var(--text);font-weight:600;backdrop-filter: blur(8px);transition:.25s ease;}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(14,165,233,.25)}
+    .container{max-width:1250px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;gap:.5rem;align-items:center;border:1px solid rgba(255,255,255,.1);
+      background:linear-gradient(180deg,rgba(34,197,94,.18),rgba(34,197,94,.08));
+      padding:.9rem 1.2rem;border-radius:14px;color:var(--text);font-weight:600;backdrop-filter: blur(8px);transition:.25s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(34,197,94,.25)}
     .btn.primary{background:linear-gradient(180deg,var(--brand),var(--brand-2));border:none;color:#041019}
-
-    /* هدر */
     header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter: blur(10px);border-bottom:1px solid rgba(148,163,184,.15)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:-.2px}
@@ -35,56 +33,33 @@
     .menu a{color:var(--muted);font-weight:600}
     .menu a.active,.menu a:hover{color:var(--text)}
     .hamburger{display:none;background:none;border:none;color:var(--text);font-size:26px}
-
-    /* هیرو */
-    .hero{padding:64px 0 32px;border-bottom:1px solid rgba(148,163,184,.12)}
+    .hero{padding:56px 0 24px;border-bottom:1px solid rgba(148,163,184,.12)}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
     .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.4rem .7rem;border-radius:999px;border:1px solid rgba(148,163,184,.25);color:var(--muted);font-size:.9rem}
-    .title{font-size:clamp(28px,4.8vw,48px);line-height:1.2;margin:.7rem 0;font-weight:800}
+    .title{font-size:clamp(28px,4.8vw,50px);line-height:1.2;margin:.7rem 0 1rem;font-weight:800}
     .subtitle{color:var(--muted);font-size:1.05rem}
-    .cta{margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap}
-    .hero-card{background:linear-gradient(180deg,rgba(148,163,184,.12),rgba(148,163,184,.06));border:1px solid rgba(148,163,184,.2);border-radius:18px;padding:18px}
-    .hero-card .stat{display:flex;align-items:center;gap:.7rem}
-
-    /* بخش‌ها */
+    .hero-card{background:linear-gradient(180deg,rgba(148,163,184,.12),rgba(148,163,184,.06));border:1px solid rgba(148,163,184,.2);border-radius:18px;padding:18px;margin-top:16px}
     section{padding:56px 0;border-bottom:1px dashed rgba(148,163,184,.15)}
     .sec-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}
     .sec-head h2{margin:0;font-size:1.6rem}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .card{background:linear-gradient(180deg,rgba(15,23,42,.75),rgba(15,23,42,.6));border:1px solid rgba(148,163,184,.15);border-radius:16px;padding:18px}
     .card h3{margin:0 0 .4rem}
-
-    /* درباره */
+    .muted{color:var(--muted)}
     .about{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
     .about img{border-radius:14px;border:1px solid rgba(148,163,184,.2)}
-
-    /* نمونه‌کار */
     .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .portfolio a{display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(148,163,184,.2)}
-
-    /* تماس */
     form{display:grid;gap:12px}
     input,textarea{background:#0b1220;border:1px solid rgba(148,163,184,.25);color:var(--text);padding:12px 14px;border-radius:12px}
     input:focus,textarea:focus{outline:2px solid var(--ring)}
     textarea{min-height:120px}
-
-    /* فوتر */
     footer{padding:26px 0;color:var(--muted)}
-
-    /* رسپانسیو */
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .portfolio{grid-template-columns:1fr 1fr}
-      .menu{display:none}
-      .hamburger{display:block}
-      .menu.open{display:flex;flex-direction:column;gap:10px;position:absolute;right:20px;left:20px;top:64px;background:#0b1220;border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:14px}
-    }
+    @media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.about{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.grid-4{grid-template-columns:1fr 1fr}.portfolio{grid-template-columns:1fr 1fr}.menu{display:none}.hamburger{display:block}.menu.open{display:flex;flex-direction:column;gap:10px;position:absolute;right:20px;left:20px;top:64px;background:#0b1220;border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:14px}}
   </style>
 </head>
 <body>
-  <!-- هدر -->
   <header>
     <div class="container nav">
       <a href="#" class="brand" aria-label="لوگوی برند">
@@ -93,155 +68,293 @@
       </a>
       <nav class="menu" id="menu">
         <a href="#services" class="active">خدمات</a>
-        <a href="#about">درباره ما</a>
-        <a href="#portfolio">نمونه‌کار</a>
-        <a href="#pay">پرداخت</a>
+        <a href="#categories">دسته‌بندی‌ها</a>
+        <a href="#rice">برنج‌کاری و سورتینگ</a>
+        <a href="#mining">راه‌سازی و معدنی</a>
+        <a href="#projects">نمونه‌کار</a>
+        <a href="#faq">سوالات</a>
         <a href="#contact">تماس</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="باز کردن منو">☰</button>
     </div>
   </header>
 
-  <!-- هیرو -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="badge">🚀 آماده برای رشد کسب‌وکار شما</div>
-        <h1 class="title">شرکت پارسا هلدینگ ایرانیان</h1>
-        <p class="subtitle">سرمایه های خود را به ما بسپارید</p>
-        <div class="cta">
-          <a href="#contact" class="btn primary">مشاوره رایگان</a>
-          <a href="#portfolio" class="btn">مشاهده نمونه‌کار</a>
-          <a href="#pay" class="btn">پرداخت آنلاین</a>
+        <div class="badge">🌱 خدمات یکپارچه کشاورزی، دامداری و شهری</div>
+        <h1 class="title">سرمایه های خود را به ما بسپارید</h1>
+        <p class="subtitle">از طراحی مزرعه تا برداشت، از مدیریت دام تا خدمات شهری و فضای سبز—تیم پارسا هلدینگ ایرانیان با تخصص، تجهیزات به‌روز و تیم‌های عملیاتی مجرب در کنار شماست.</p>
+        <div class="cta" style="margin-top:14px;display:flex;gap:.8rem;flex-wrap:wrap">
+          <a href="#services" class="btn primary">مشاهده خدمات</a>
+          <a href="#contact" class="btn">ثبت درخواست فوری</a>
+          <a href="#rice" class="btn">برنج‌کاری و سورتینگ</a>
         </div>
-        <div class="hero-card" style="margin-top:16px">
-          <div class="stat">⭐ <b>۹۸٪</b> رضایت مشتریان</div>
-          <div class="muted" style="margin-top:6px">ارسال در کمتر از ۲۴ ساعت | پشتیبانی واقعی</div>
+        <div class="hero-card">
+          <div>⭐ میانگین رضایت ۹۸٪ | 🚚 پوششِ سریع در استان‌های منتخب | 🔒 قرارداد رسمی و ضمانت کیفیت</div>
         </div>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="تصویری مرتبط با کسب‌وکار" />
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop" alt="مزارع سبز و تراکتور"/>
       </div>
     </div>
   </section>
 
-  <!-- خدمات -->
   <section id="services">
     <div class="container">
       <div class="sec-head">
         <h2>خدمات ما</h2>
-        <span class="muted">چند خدمت کلیدی که ارائه می‌دهید</span>
+        <span class="muted">کیفیت اجرایی، سرعت عمل، قیمت منصفانه</span>
       </div>
       <div class="grid-3">
         <div class="card">
-          <h3>عنوان خدمت اول</h3>
-          <p class="muted">توضیح کوتاه درباره این خدمت و مزایای آن برای مشتری.</p>
+          <h3>کشاورزی و مکانیزاسیون</h3>
+          <p class="muted">شخم، دیسک، بذرپاشی، سمپاشی پهپادی، کوددهی، برداشت مکانیزه و مشاوره کشت اقتصادی.</p>
         </div>
         <div class="card">
-          <h3>عنوان خدمت دوم</h3>
-          <p class="muted">توضیح کوتاه درباره این خدمت و مزایای آن برای مشتری.</p>
+          <h3>دامداری و امور دامی</h3>
+          <p class="muted">بهداشت و واکسیناسیون، تغذیه و جیره‌نویسی، خرید و فروش دام، احداث و بهینه‌سازی دامداری.</p>
         </div>
         <div class="card">
-          <h3>عنوان خدمت سوم</h3>
-          <p class="muted">توضیح کوتاه درباره این خدمت و مزایای آن برای مشتری.</p>
+          <h3>خدمات شهری و فضای سبز</h3>
+          <p class="muted">هِرس و اصلاح، چمن‌زنی، آبیاری قطره‌ای، جمع‌آوری پسماند سبز، طراحی و نگهداری پارک‌ها و معابر.</p>
+        </div>
+        <div class="card">
+          <h3>سیستم‌های آبیاری</h3>
+          <p class="muted">طراحی و اجرای آبیاری قطره‌ای و تحت فشار، فیلتراسیون، اتوماسیون و مدیریت مصرف آب.</p>
+        </div>
+        <div class="card">
+          <h3>انبارداری و زنجیره تأمین</h3>
+          <p class="muted"> بسته‌بندی، سردخانه مشارکتی، لجستیک و توزیع محصول با رهگیری و مستندسازی.</p>
+        </div>
+        <div class="card">
+          <h3>مشاوره و آموزش</h3>
+          <p class="muted">کارگاه‌های آموزشی، بازدید میدانی، تدوین تقویم کشت و پایش مزرعه با گزارش‌های دوره‌ای.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- درباره ما -->
-  <section id="about">
-    <div class="container about">
-      <div>
-        <h2>درباره ما</h2>
-        <p class="muted">در اینجا داستان کوتاهی از برند خود، تجربه‌ها و ارزش‌های محوری‌تان بنویسید. اگر افتخارها و آمارهای قابل توجهی دارید، ذکر آن‌ها اعتماد بیشتری ایجاد می‌کند.</p>
-        <ul class="muted">
-          <li>✅ بیش از ۵ سال سابقه</li>
-          <li>✅ همکاری با ۱۰۰+ مشتری</li>
-          <li>✅ تضمین کیفیت خدمات</li>
-        </ul>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="تیم ما" />
-      </div>
-    </div>
-  </section>
-
-  <!-- نمونه‌کار -->
-  <section id="portfolio">
+  <section id="categories">
     <div class="container">
       <div class="sec-head">
-        <h2>نمونه‌کارها</h2>
-        <a class="muted" href="#">مشاهده همه →</a>
+        <h2>دسته‌بندی خدمات</h2>
+        <a class="muted" href="#contact">درخواست قیمت →</a>
+      </div>
+      <div class="grid-4">
+        <a class="card" href="#agri">
+          <h3>عملیات مزرعه</h3>
+          <p class="muted">آماده‌سازی زمین، کاشت، مراقبت تا برداشت</p>
+        </a>
+        <a class="card" href="#livestock">
+          <h3>دام و طیور</h3>
+          <p class="muted">خدمات کلینیکی، تغذیه، جایگاه و بهداشت</p>
+        </a>
+        <a class="card" href="#urban">
+          <h3>خدمات شهری</h3>
+          <p class="muted">فضای سبز، پاکسازی و نگهداری معابر</p>
+        </a>
+        <a class="card" href="#irrigation">
+          <h3>آبیاری و اتوماسیون</h3>
+          <p class="muted">قطره‌ای، بارانی، کنترل هوشمند</p>
+        </a>
+      </div>
+      <div class="grid-4" style="margin-top:16px">
+        <a class="card" href="#machinery">
+          <h3>ماشین‌آلات و تجهیزات</h3>
+          <p class="muted">تأمین، اجاره و اپراتوری حرفه‌ای</p>
+        </a>
+        <a class="card" href="#postharvest">
+          <h3>پس از برداشت</h3>
+          <p class="muted">سورتینگ، بسته‌بندی، انبارداری سرد</p>
+        </a>
+        <a class="card" href="#consult">
+          <h3>مشاوره تخصصی</h3>
+          <p class="muted">تحلیل اقتصادی و مدیریت ریسک</p>
+        </a>
+        <a class="card" href="#rice">
+          <h3>برنج‌کاری</h3>
+          <p class="muted">کاشت تا سورتینگ و تحویل</p>
+        </a>
+      </div>
+      <div class="grid-4" style="margin-top:16px">
+        <a class="card" href="#mining">
+          <h3>راه‌سازی و معدنی</h3>
+          <p class="muted">زیرسازی، بیل‌مکانیکی، سنگ‌شکن و دپو</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="rice">
+    <div class="container">
+      <div class="sec-head">
+        <h2>برنج‌کاری و سورتینگ — تخصص ما</h2>
+        <span class="muted">از خزانه تا تحویل بازارپسند</span>
+      </div>
+      <div class="about">
+        <div>
+          <p>پارسا هلدینگ ایرانیان با تیم‌های تخصصی، عملیات کامل برنج‌کاری را انجام می‌دهد: تهیه خزانه، نشاکاری مکانیزه، کنترل علف‌های هرز و آفات، مدیریت آب، برداشت کم‌تلفات، خشک‌کنی اصولی و در نهایت <b>سورتینگ لیزری</b> برای جداسازی دانه‌های شکسته، رنگی و ناخالصی‌ها. خروجی، برنج یکنواخت و بازارپسند با بسته‌بندی استاندارد است.</p>
+          <ul class="muted">
+            <li>✅ نشاکاری و برداشت مکانیزه با حداقل خواب زمین</li>
+            <li>✅ سورتینگ چندمرحله‌ای (درجه‌بندی، جدایش رنگی، حذف ناخالصی)</li>
+            <li>✅ قرارداد شفاف، برنامه زمان‌بندی و گزارش‌ دهی مرحله‌ای</li>
+          </ul>
+          <div class="cta" style="margin-top:10px">
+            <a href="#contact" class="btn primary">درخواست برآورد هزینه</a>
+            <a href="#projects" class="btn">دیدن نمونه‌کار</a>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7df?q=80&w=1200&auto=format&fit=crop" alt="برنج‌کاری و سورتینگ"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- راه‌سازی و فعالیت‌های معدنی -->
+  <section id="mining">
+    <div class="container">
+      <div class="sec-head">
+        <h2>راه‌سازی و فعالیت‌های معدنی</h2>
+        <span class="muted">از خاک‌برداری تا تولید مصالح استاندارد</span>
+      </div>
+
+      <!-- روبان آماری زیبا -->
+      <div class="card" style="background:linear-gradient(90deg, rgba(34,197,94,.25), rgba(16,185,129,.15));border:1px solid rgba(34,197,94,.35)">
+        <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+          <div><b>🚧 پروژه‌های راه‌سازی:</b> زیرسازی، رگلاژ، کوبش و آسفالت</div>
+          <div><b>⛏️ معدنی:</b> استخراج، دپوی مرحله‌ای، حمل و بارگیری</div>
+          <div><b>🪨 سنگ‌شکن:</b> تولید شن‌وماسه و انواع سایز دانه‌بندی</div>
+        </div>
+      </div>
+
+      <div class="about" style="margin-top:18px">
+        <div>
+          <h3>بیل مکانیکی، قلب عملیات خاکی</h3>
+          <p class="muted">بیل مکانیکی با اتصالات متنوع (باکت سنگی، چکش هیدرولیک، ریلر) برای خاک‌برداری، سنگ‌برداری، بارگیری و تسطیح به‌کار می‌رود. اپراتورهای مجرب ما با رعایت ایمنی و استاندارد بهره‌برداری، سرعت و دقت اجرای پروژه را تضمین می‌کنند.</p>
+          <ul class="muted">
+            <li>✅ خاک‌برداری و بارگیری کوهانه‌ها، کانال و ترانشه</li>
+            <li>✅ تخریب کنترل‌شده سازه‌های بتنی با چکش هیدرولیک</li>
+            <li>✅ رگلاژ بستر راه و تسطیح نهایی با دقت تراز</li>
+          </ul>
+          <h3>معدن و سنگ‌شکن</h3>
+          <p class="muted">در معادن روباز، پس از برداشت و جداسازی، مواد اولیه به واحد سنگ‌شکن منتقل می‌شود. خردایش در مراحل فکی، کوبیتی/مخروطی و سرندکردن انجام شده و دانه‌بندی‌های استاندارد (۰–۶، ۶–۱۲، ۱۲–۲۵ و ...) تولید می‌شود. کنترل کیفیت و نمونه‌گیری مستمر، یکنواختی محصول را تضمین می‌کند.</p>
+          <ul class="muted">
+            <li>✅ نصب و بهره‌برداری خطوط خردایش سیار یا ثابت</li>
+            <li>✅ تولید ماسه شسته و محصولات مناسب بتن و آسفالت</li>
+            <li>✅ مدیریت گردوغبار و ایمنی حین بهره‌برداری</li>
+          </ul>
+          <div class="cta" style="margin-top:10px">
+            <a href="#contact" class="btn primary">درخواست برآورد راه‌سازی/معدنی</a>
+            <a href="#projects" class="btn">مشاهده پروژه‌ها</a>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1569388330908-38fef03f0907?q=80&w=1200&auto=format&fit=crop" alt="بیل مکانیکی در حال خاک‌برداری"/>
+        </div>
+      </div>
+
+      <div class="portfolio" style="margin-top:18px">
+        <a href="#" aria-label="حفاری و بارگیری"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop" alt="حفاری معدنی"></a>
+        <a href="#" aria-label="سنگ‌شکن و سرند"><img src="https://images.unsplash.com/photo-1581093588401-00db0d77cf0f?q=80&w=1200&auto=format&fit=crop" alt="کارخانه سنگ‌شکن"></a>
+        <a href="#" aria-label="راه‌سازی و آسفالت"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="راه‌سازی"></a>
+      </div>
+
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card"><h3>راه‌سازی</h3><p class="muted">آزمایشات ژئو‌تکنیک، زهکشی، زیرسازی، بیس و ساب‌بیس، کوبش لایه‌ها و اجرای آسفالت با کنترل کیفی.</p></div>
+        <div class="card"><h3>حمل و لجستیک</h3><p class="muted">تأمین کمپرسی، تریلی و لودر برای حمل مصالح، مدیریت ترافیک کارگاهی و زمان‌بندی.</p></div>
+        <div class="card"><h3>تأمین مصالح</h3><p class="muted">شن و ماسه شسته، اساس و زیراساس، دانه‌بندی‌های استاندارد برای پروژه‌های عمرانی.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="sec-head">
+        <h2>نمونه‌کارها و پروژه‌ها</h2>
+        <a class="muted" href="#contact">مشاوره رایگان →</a>
       </div>
       <div class="portfolio">
-        <a href="#" aria-label="نمونه‌کار ۱"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="نمونه‌کار ۱" /></a>
-        <a href="#" aria-label="نمونه‌کار ۲"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="نمونه‌کار ۲" /></a>
-        <a href="#" aria-label="نمونه‌کار ۳"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="نمونه‌کار ۳" /></a>
+        <a href="#" aria-label="مزرعه گندم"><img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop" alt="مزرعه گندم"></a>
+        <a href="#" aria-label="نشاکاری برنج"><img src="https://images.unsplash.com/photo-1500631195312-e3a9a5819f14?q=80&w=1200&auto=format&fit=crop" alt="نشاکاری"></a>
+        <a href="#" aria-label="چراگاه دام"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="دامداری"></a>
       </div>
     </div>
   </section>
 
-  <!-- پرداخت آنلاین -->
-  <section id="pay">
+  <section id="machinery">
     <div class="container">
       <div class="sec-head">
-        <h2>پرداخت آنلاین</h2>
-        <span class="muted">با استفاده از درگاه‌های امن واسط</span>
+        <h2>تجهیزات و ماشین‌آلات</h2>
+        <span class="muted">برای هر کار، ابزار درست</span>
       </div>
       <div class="grid-3">
-        <div class="card">
-          <h3>روش ۱: زرین‌پال</h3>
-          <p class="muted">روی دکمه زیر بزنید تا به صفحه پرداخت زرین‌پال هدایت شوید.</p>
-          <!-- نمونه لینک زرین‌لینک؛ مقدار YOUR-LINK را با لینک اختصاصی خود جایگزین کنید -->
-          <a class="btn primary" id="zarinpalBtn" href="https://zarinp.al/YOUR-LINK" target="_blank" rel="noopener">پرداخت با زرین‌پال</a>
-          <small class="muted">* بعداً فقط <code>YOUR-LINK</code> را با لینک اختصاصی خودتان جایگزین کنید.</small>
-        </div>
-        <div class="card">
-          <h3>روش ۲: آیدی‌پی</h3>
-          <p class="muted">اگر از آیدی‌پی استفاده می‌کنید، لینک پرداخت اختصاصی‌تان را قرار دهید.</p>
-          <a class="btn" id="idpayBtn" href="https://idpay.ir/YOUR-ID" target="_blank" rel="noopener">پرداخت با آیدی‌پی</a>
-          <small class="muted">* بخش <code>YOUR-ID</code> را با شناسه صفحه پرداخت خود جایگزین کنید.</small>
-        </div>
-        <div class="card">
-          <h3>پرداخت مبلغ دلخواه (اختیاری)</h3>
-          <form id="payForm">
-            <label class="muted" for="amount">مبلغ (تومان)</label>
-            <input id="amount" type="number" min="1000" step="1000" placeholder="مثلاً 500000" required />
-            <button type="submit" class="btn">ایجاد لینک پرداخت زرین‌پال</button>
-            <p id="payStatus" class="muted" aria-live="polite"></p>
-          </form>
-          <small class="muted">* برای استفاده واقعی باید در داشبورد سرویس خود (زرین‌پال/آیدی‌پی) API یا لینک مبلغ‌دار بسازید.</small>
-        </div>
+        <div class="card"><h3>تراکتور و ادوات</h3><p class="muted">گاوآهن، دیسک، روتیواتور، بذرکار و کودپاش با اپراتور مجرب.</p></div>
+        <div class="card"><h3>سمپاش هوشمند</h3><p class="muted">پهپاد سمپاش و بوم‌اسپری با ثبت گزارش پوشش و مصرف.</p></div>
+        <div class="card"><h3>دستگاه سورتینگ</h3><p class="muted">درجه‌بندی و رنگ‌سنجی لیزری با ظرفیت‌های متنوع.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- تماس -->
+  <section id="process">
+    <div class="container">
+      <div class="sec-head">
+        <h2>فرایند همکاری</h2>
+        <span class="muted">۴ گام ساده و شفاف</span>
+      </div>
+      <div class="grid-4">
+        <div class="card"><h3>۱) ثبت درخواست</h3><p class="muted">فرم را پر کنید یا تماس بگیرید؛ نیاز شما را دقیق می‌شنویم.</p></div>
+        <div class="card"><h3>۲) بازدید میدانی</h3><p class="muted">کارشناس ما از محل بازدید و بهترین راهکار را پیشنهاد می‌کند.</p></div>
+        <div class="card"><h3>۳) قرارداد و اجرا</h3><p class="muted">برنامه زمان‌بندی و تیم اجرا مشخص و کار آغاز می‌شود.</p></div>
+        <div class="card"><h3>۴) تحویل و پشتیبانی</h3><p class="muted">تحویل مرحله‌ای، گزارش کار و پشتیبانی پس از اجرا.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="sec-head">
+        <h2>سوالات متداول</h2>
+        <span class="muted">اگر پاسخ خود را نمی‌بینید، با ما تماس بگیرید</span>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>در چه شهرهایی فعالیت دارید؟</h3><p class="muted">در حال حاضر استان‌های منتخب را پوشش می‌دهیم؛ برای پروژه‌های بزرگ، تیم اعزام می‌شود.</p></div>
+        <div class="card"><h3>هزینه خدمات چگونه محاسبه می‌شود؟</h3><p class="muted">بر اساس نوع خدمت، متراژ، تجهیزات موردنیاز و زمان‌بندی. پیش‌فاکتور شفاف ارائه می‌شود.</p></div>
+        <div class="card"><h3>آیا ضمانت دارید؟</h3><p class="muted">بله؛ کیفیت اجرا و سلامت تجهیزات در قرارداد تضمین می‌شود.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- تماس و درخواست قیمت -->
   <section id="contact">
     <div class="container">
       <div class="sec-head">
         <h2>تماس با ما</h2>
-        <span class="muted">سریع‌ترین راه‌های ارتباطی</span>
+        <span class="muted">برای دریافت مشاوره و برآورد هزینه</span>
       </div>
       <div class="grid-3">
         <div class="card">
           <h3>اطلاعات تماس</h3>
           <p class="muted">📞 09131181021<br>☎️ 02191690400<br>✉️ Parvizi118@yahoo.com</p>
+          <p class="muted">ساعات پاسخگویی: ۹ تا ۱۸</p>
         </div>
         <div class="card">
-          <h3>فرم تماس</h3>
+          <h3>فرم درخواست</h3>
           <form id="contactForm">
             <input type="text" name="name" placeholder="نام و نام خانوادگی" required />
-            <input type="email" name="email" placeholder="ایمیل" required />
-            <textarea name="message" placeholder="پیام شما" required></textarea>
-            <button class="btn primary" type="submit">ارسال پیام</button>
+            <input type="tel" name="phone" placeholder="شماره تماس" />
+            <input type="email" name="email" placeholder="ایمیل" />
+            <textarea name="message" placeholder="شرح نیاز شما (نوع خدمت، متراژ، شهر)" required></textarea>
+            <button class="btn primary" type="submit">ارسال درخواست</button>
             <p id="formStatus" class="muted" aria-live="polite"></p>
           </form>
         </div>
         <div class="card">
-          <h3>شبکه‌های اجتماعی</h3>
-          <p class="muted">لینک‌های اینستاگرام، لینکدین، تلگرام و ...</p>
+          <h3>پرداخت آنلاین</h3>
+          <p class="muted">برای بیعانه یا تسویه، از لینک‌های امن استفاده کنید.</p>
+          <a class="btn primary" href="https://zarinp.al/YOUR-LINK" target="_blank" rel="noopener">پرداخت با زرین‌پال</a>
+          <a class="btn" href="https://idpay.ir/YOUR-ID" target="_blank" rel="noopener">پرداخت با آیدی‌پی</a>
         </div>
       </div>
     </div>
@@ -252,9 +365,8 @@
       <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
         <small>© <span id="year"></span> شرکت پارسا هلدینگ ایرانیان. همه حقوق محفوظ است.</small>
         <small class="muted">طراحی با ❤</small>
-
-      <!-- اینماد -->
-      <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=639711&Code=tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=639711&Code=tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj' alt='اینماد' style='cursor:pointer' code='tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj'></a>
+        <!-- اینماد -->
+        <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=639711&Code=tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=639711&Code=tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj' alt='اینماد' style='cursor:pointer' code='tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj'></a>
       </div>
     </div>
   </footer>
@@ -262,43 +374,25 @@
   <script>
     // سال جاری
     document.getElementById('year').textContent = new Date().getFullYear();
-
     // منوی موبایل
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
     hamburger?.addEventListener('click', ()=> menu.classList.toggle('open'))
-
-    // فرم تماس (ارسال ایمیل به mailto یا وب‌هوک دلخواه)
+    // فرم تماس → mailto ساده یا وب‌هوک دلخواه
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     form?.addEventListener('submit', (e)=>{
       e.preventDefault();
       const data = new FormData(form);
-      const name = data.get('name');
-      const email = data.get('email');
-      const message = data.get('message');
-      // روش ساده: باز کردن ایمیل کلاینت کاربر
-      window.location.href = `mailto:Parvizi118@yahoo.com?subject=پیام جدید از ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "
+      const name = data.get('name')||'';
+      const phone = data.get('phone')||'';
+      const email = data.get('email')||'';
+      const message = data.get('message')||'';
+      window.location.href = `mailto:Parvizi118@yahoo.com?subject=درخواست جدید از ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "
 
-ایمیل: " + email)}`;
+📞 " + phone + "
+✉️ " + email)}`;
       status.textContent = 'در حال انتقال به ایمیل…';
-    });
-
-    // فرم مبلغ دلخواه برای زرین‌پال (دمو سمت کاربر)
-    const payForm = document.getElementById('payForm');
-    const payStatus = document.getElementById('payStatus');
-    payForm?.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const amount = document.getElementById('amount').value;
-      if(!amount || amount < 1000){
-        payStatus.textContent = 'لطفاً مبلغ معتبر وارد کنید.';
-        return;
-      }
-      // در حالت واقعی، باید روی سرور درخواست ایجاد تراکنش بدهید و لینک بازگشت دریافت کنید.
-      // این‌جا برای نمایش، کاربر را به یک لینک عمومی هدایت می‌کنیم (شما باید YOUR-LINK را جایگزین کنید)
-      const zarinLink = 'https://zarinp.al/YOUR-LINK';
-      payStatus.textContent = 'در حال انتقال به صفحه پرداخت…';
-      window.open(zarinLink, '_blank');
     });
   </script>
 </body>
