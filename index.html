@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>شرکت پارسا هلدینگ ایرانیان | صفحه اصلی</title>
+  <meta name="description" content="شرکت پارسا هلدینگ ایرانیان — سرمایه های خود را به ما بسپارید." />
+  <meta name="keywords" content="برند, شرکت, خدمات, فروش, پشتیبانی" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- فونت فارسی Vazirmatn -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{--bg:#0b1220;--card:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--brand:#0ea5e9;--brand-2:#22d3ee;--ring:#38bdf8}
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{font-family:'Vazirmatn',system-ui,-apple-system,Segoe UI,Roboto; color:var(--text); background:radial-gradient(1200px 600px at 80% -10%, rgba(34,211,238,.15), transparent 60%),
+          radial-gradient(1000px 500px at 10% -10%, rgba(14,165,233,.2), transparent 60%),
+          linear-gradient(180deg, #0b1220 0%, #0b1220 100%);}  
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;gap:.5rem;align-items:center;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(14,165,233,.2),rgba(14,165,233,.1));
+         padding:.9rem 1.2rem;border-radius:14px;color:var(--text);font-weight:600;backdrop-filter: blur(8px);transition:.25s ease;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(14,165,233,.25)}
+    .btn.primary{background:linear-gradient(180deg,var(--brand),var(--brand-2));border:none;color:#041019}
+
+    /* هدر */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter: blur(10px);border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:-.2px}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 120deg, var(--brand), var(--brand-2));display:grid;place-items:center;color:#041019;font-weight:800}
+    .menu{display:flex;gap:1.2rem}
+    .menu a{color:var(--muted);font-weight:600}
+    .menu a.active,.menu a:hover{color:var(--text)}
+    .hamburger{display:none;background:none;border:none;color:var(--text);font-size:26px}
+
+    /* هیرو */
+    .hero{padding:64px 0 32px;border-bottom:1px solid rgba(148,163,184,.12)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .badge{display:inline-flex;gap:.5rem;align-items:center;padding:.4rem .7rem;border-radius:999px;border:1px solid rgba(148,163,184,.25);color:var(--muted);font-size:.9rem}
+    .title{font-size:clamp(28px,4.8vw,48px);line-height:1.2;margin:.7rem 0;font-weight:800}
+    .subtitle{color:var(--muted);font-size:1.05rem}
+    .cta{margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap}
+    .hero-card{background:linear-gradient(180deg,rgba(148,163,184,.12),rgba(148,163,184,.06));border:1px solid rgba(148,163,184,.2);border-radius:18px;padding:18px}
+    .hero-card .stat{display:flex;align-items:center;gap:.7rem}
+
+    /* بخش‌ها */
+    section{padding:56px 0;border-bottom:1px dashed rgba(148,163,184,.15)}
+    .sec-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}
+    .sec-head h2{margin:0;font-size:1.6rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,rgba(15,23,42,.75),rgba(15,23,42,.6));border:1px solid rgba(148,163,184,.15);border-radius:16px;padding:18px}
+    .card h3{margin:0 0 .4rem}
+
+    /* درباره */
+    .about{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+    .about img{border-radius:14px;border:1px solid rgba(148,163,184,.2)}
+
+    /* نمونه‌کار */
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .portfolio a{display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(148,163,184,.2)}
+
+    /* تماس */
+    form{display:grid;gap:12px}
+    input,textarea{background:#0b1220;border:1px solid rgba(148,163,184,.25);color:var(--text);padding:12px 14px;border-radius:12px}
+    input:focus,textarea:focus{outline:2px solid var(--ring)}
+    textarea{min-height:120px}
+
+    /* فوتر */
+    footer{padding:26px 0;color:var(--muted)}
+
+    /* رسپانسیو */
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .portfolio{grid-template-columns:1fr 1fr}
+      .menu{display:none}
+      .hamburger{display:block}
+      .menu.open{display:flex;flex-direction:column;gap:10px;position:absolute;right:20px;left:20px;top:64px;background:#0b1220;border:1px solid rgba(148,163,184,.25);border-radius:12px;padding:14px}
+    }
+  </style>
+</head>
+<body>
+  <!-- هدر -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="لوگوی برند">
+        <span class="logo">•</span>
+        <span>شرکت پارسا هلدینگ ایرانیان</span>
+      </a>
+      <nav class="menu" id="menu">
+        <a href="#services" class="active">خدمات</a>
+        <a href="#about">درباره ما</a>
+        <a href="#portfolio">نمونه‌کار</a>
+        <a href="#pay">پرداخت</a>
+        <a href="#contact">تماس</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="باز کردن منو">☰</button>
+    </div>
+  </header>
+
+  <!-- هیرو -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">🚀 آماده برای رشد کسب‌وکار شما</div>
+        <h1 class="title">شرکت پارسا هلدینگ ایرانیان</h1>
+        <p class="subtitle">سرمایه های خود را به ما بسپارید</p>
+        <div class="cta">
+          <a href="#contact" class="btn primary">مشاوره رایگان</a>
+          <a href="#portfolio" class="btn">مشاهده نمونه‌کار</a>
+          <a href="#pay" class="btn">پرداخت آنلاین</a>
+        </div>
+        <div class="hero-card" style="margin-top:16px">
+          <div class="stat">⭐ <b>۹۸٪</b> رضایت مشتریان</div>
+          <div class="muted" style="margin-top:6px">ارسال در کمتر از ۲۴ ساعت | پشتیبانی واقعی</div>
+        </div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="تصویری مرتبط با کسب‌وکار" />
+      </div>
+    </div>
+  </section>
+
+  <!-- خدمات -->
+  <section id="services">
+    <div class="container">
+      <div class="sec-head">
+        <h2>خدمات ما</h2>
+        <span class="muted">چند خدمت کلیدی که ارائه می‌دهید</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>عنوان خدمت اول</h3>
+          <p class="muted">توضیح کوتاه درباره این خدمت و مزایای آن برای مشتری.</p>
+        </div>
+        <div class="card">
+          <h3>عنوان خدمت دوم</h3>
+          <p class="muted">توضیح کوتاه درباره این خدمت و مزایای آن برای مشتری.</p>
+        </div>
+        <div class="card">
+          <h3>عنوان خدمت سوم</h3>
+          <p class="muted">توضیح کوتاه درباره این خدمت و مزایای آن برای مشتری.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- درباره ما -->
+  <section id="about">
+    <div class="container about">
+      <div>
+        <h2>درباره ما</h2>
+        <p class="muted">در اینجا داستان کوتاهی از برند خود، تجربه‌ها و ارزش‌های محوری‌تان بنویسید. اگر افتخارها و آمارهای قابل توجهی دارید، ذکر آن‌ها اعتماد بیشتری ایجاد می‌کند.</p>
+        <ul class="muted">
+          <li>✅ بیش از ۵ سال سابقه</li>
+          <li>✅ همکاری با ۱۰۰+ مشتری</li>
+          <li>✅ تضمین کیفیت خدمات</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="تیم ما" />
+      </div>
+    </div>
+  </section>
+
+  <!-- نمونه‌کار -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="sec-head">
+        <h2>نمونه‌کارها</h2>
+        <a class="muted" href="#">مشاهده همه →</a>
+      </div>
+      <div class="portfolio">
+        <a href="#" aria-label="نمونه‌کار ۱"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="نمونه‌کار ۱" /></a>
+        <a href="#" aria-label="نمونه‌کار ۲"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="نمونه‌کار ۲" /></a>
+        <a href="#" aria-label="نمونه‌کار ۳"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="نمونه‌کار ۳" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- پرداخت آنلاین -->
+  <section id="pay">
+    <div class="container">
+      <div class="sec-head">
+        <h2>پرداخت آنلاین</h2>
+        <span class="muted">با استفاده از درگاه‌های امن واسط</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>روش ۱: زرین‌پال</h3>
+          <p class="muted">روی دکمه زیر بزنید تا به صفحه پرداخت زرین‌پال هدایت شوید.</p>
+          <!-- نمونه لینک زرین‌لینک؛ مقدار YOUR-LINK را با لینک اختصاصی خود جایگزین کنید -->
+          <a class="btn primary" id="zarinpalBtn" href="https://zarinp.al/YOUR-LINK" target="_blank" rel="noopener">پرداخت با زرین‌پال</a>
+          <small class="muted">* بعداً فقط <code>YOUR-LINK</code> را با لینک اختصاصی خودتان جایگزین کنید.</small>
+        </div>
+        <div class="card">
+          <h3>روش ۲: آیدی‌پی</h3>
+          <p class="muted">اگر از آیدی‌پی استفاده می‌کنید، لینک پرداخت اختصاصی‌تان را قرار دهید.</p>
+          <a class="btn" id="idpayBtn" href="https://idpay.ir/YOUR-ID" target="_blank" rel="noopener">پرداخت با آیدی‌پی</a>
+          <small class="muted">* بخش <code>YOUR-ID</code> را با شناسه صفحه پرداخت خود جایگزین کنید.</small>
+        </div>
+        <div class="card">
+          <h3>پرداخت مبلغ دلخواه (اختیاری)</h3>
+          <form id="payForm">
+            <label class="muted" for="amount">مبلغ (تومان)</label>
+            <input id="amount" type="number" min="1000" step="1000" placeholder="مثلاً 500000" required />
+            <button type="submit" class="btn">ایجاد لینک پرداخت زرین‌پال</button>
+            <p id="payStatus" class="muted" aria-live="polite"></p>
+          </form>
+          <small class="muted">* برای استفاده واقعی باید در داشبورد سرویس خود (زرین‌پال/آیدی‌پی) API یا لینک مبلغ‌دار بسازید.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- تماس -->
+  <section id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <h2>تماس با ما</h2>
+        <span class="muted">سریع‌ترین راه‌های ارتباطی</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>اطلاعات تماس</h3>
+          <p class="muted">📞 09131181021<br>☎️ 02191690400<br>✉️ Parvizi118@yahoo.com</p>
+        </div>
+        <div class="card">
+          <h3>فرم تماس</h3>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="نام و نام خانوادگی" required />
+            <input type="email" name="email" placeholder="ایمیل" required />
+            <textarea name="message" placeholder="پیام شما" required></textarea>
+            <button class="btn primary" type="submit">ارسال پیام</button>
+            <p id="formStatus" class="muted" aria-live="polite"></p>
+          </form>
+        </div>
+        <div class="card">
+          <h3>شبکه‌های اجتماعی</h3>
+          <p class="muted">لینک‌های اینستاگرام، لینکدین، تلگرام و ...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+        <small>© <span id="year"></span> شرکت پارسا هلدینگ ایرانیان. همه حقوق محفوظ است.</small>
+        <small class="muted">طراحی با ❤</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // سال جاری
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // منوی موبایل
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamburger?.addEventListener('click', ()=> menu.classList.toggle('open'))
+
+    // فرم تماس (ارسال ایمیل به mailto یا وب‌هوک دلخواه)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const email = data.get('email');
+      const message = data.get('message');
+      // روش ساده: باز کردن ایمیل کلاینت کاربر
+      window.location.href = `mailto:Parvizi118@yahoo.com?subject=پیام جدید از ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "
+
+ایمیل: " + email)}`;
+      status.textContent = 'در حال انتقال به ایمیل…';
+    });
+
+    // فرم مبلغ دلخواه برای زرین‌پال (دمو سمت کاربر)
+    const payForm = document.getElementById('payForm');
+    const payStatus = document.getElementById('payStatus');
+    payForm?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const amount = document.getElementById('amount').value;
+      if(!amount || amount < 1000){
+        payStatus.textContent = 'لطفاً مبلغ معتبر وارد کنید.';
+        return;
+      }
+      // در حالت واقعی، باید روی سرور درخواست ایجاد تراکنش بدهید و لینک بازگشت دریافت کنید.
+      // این‌جا برای نمایش، کاربر را به یک لینک عمومی هدایت می‌کنیم (شما باید YOUR-LINK را جایگزین کنید)
+      const zarinLink = 'https://zarinp.al/YOUR-LINK';
+      payStatus.textContent = 'در حال انتقال به صفحه پرداخت…';
+      window.open(zarinLink, '_blank');
+    });
+  </script>
+</body>
+</html>
