@@ -3,136 +3,145 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>شرکت پارسا هلدینگ ایرانیان | خدمات</title>
+  <title>شرکت پارسا هلدینگ ایرانیان</title>
+  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، خدمات شهری، برنج‌کاری، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال." />
+  <meta name="theme-color" content="#16a34a" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
-    body{font-family:sans-serif;background:#0b1220;color:#e2e8f0;margin:0;padding:0}
-    .container{max-width:800px;margin:auto;padding:1rem}
-    .card{background:#0f172a;border:1px solid #334155;border-radius:14px;padding:1rem;margin:1rem 0}
-    .muted{color:#94a3b8}
-    .btn{padding:.7rem 1rem;border-radius:10px;background:#16a34a;color:#041019;font-weight:600;border:none;cursor:pointer}
-    input{padding:.5rem;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0;width:100%}
+    body{font-family:'Vazirmatn',sans-serif;background:#0b1220;color:#e2e8f0;margin:0;padding:0}
+    header,footer{background:#0f172a;padding:1rem}
+    header nav a{color:#94a3b8;margin:0 .5rem;text-decoration:none}
+    .container{max-width:1200px;margin:auto;padding:1rem}
+    .card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:1rem;margin-bottom:1rem}
+    input,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0}
+    button{padding:.7rem 1rem;border:none;border-radius:8px;cursor:pointer;font-weight:600}
+    .btn-primary{background:#16a34a;color:#041019}
   </style>
 </head>
 <body>
+  <header>
+    <nav class="container">
+      <a href="#services">خدمات</a>
+      <a href="#rice">برنج‌کاری</a>
+      <a href="#mining">راه‌سازی و معدنی</a>
+      <a href="#contact">تماس و پرداخت</a>
+    </nav>
+  </header>
+
   <main class="container">
-    <section id="materials" class="card">
+    <!-- فرم شن و ماسه -->
+    <section id="materials">
       <h2>محاسبه و پرداخت شن و ماسه</h2>
-      <form id="materialsForm">
-        <label>مقدار کل (تن):</label>
-        <input type="text" name="qty" placeholder="مثلاً 12" required />
+      <div class="card">
+        <form id="materialsForm">
+          <label>قیمت واحد (تومان/تن): ۳۸۰,۰۰۰ (ثابت)</label>
+          <input type="hidden" name="unitPrice" value="380000" />
 
-        <label>هزینه حمل (تومان/کیلومتر):</label>
-        <input type="text" name="transportPerKm" placeholder="مثلاً 8000" />
+          <label>مقدار کل (تن)</label>
+          <input type="number" name="qty" placeholder="مثلا 10" required />
 
-        <label>مسافت حمل (کیلومتر):</label>
-        <input type="text" name="distanceKm" placeholder="مثلاً 20" />
+          <label>هزینه حمل (تومان/کیلومتر) - اختیاری</label>
+          <input type="number" name="transportPerKm" placeholder="مثلا 8000" />
 
-        <label>لودر/بیل مکانیکی (تومان/ساعت):</label>
-        <input type="text" name="loaderRate" placeholder="مثلاً 300000" />
+          <label>مسافت حمل (کیلومتر) - اختیاری</label>
+          <input type="number" name="distanceKm" placeholder="مثلا 20" />
 
-        <label>مدت کار (ساعت):</label>
-        <input type="text" name="loaderHours" placeholder="مثلاً 2" />
+          <label>لودر/بیل مکانیکی (تومان/ساعت) - اختیاری</label>
+          <input type="number" name="loaderRate" placeholder="مثلا 300000" />
 
-        <label>انعام (تومان):</label>
-        <input type="text" name="tipAmount" placeholder="مثلاً 50000" />
+          <label>مدت کار (ساعت) - اختیاری</label>
+          <input type="number" name="loaderHours" placeholder="مثلا 2" />
 
-        <label>سایر هزینه‌ها (تومان):</label>
-        <input type="text" name="extraFees" placeholder="مثلاً 30000" />
+          <label>انعام (تومان) - اختیاری</label>
+          <input type="number" name="tipAmount" placeholder="مثلا 50000" />
 
-        <div class="card">
-          <div>جمع شن و ماسه: <span id="materialsSubtotal">0</span> تومان</div>
-          <div>حمل و نقل: <span id="materialsTransport">0</span> تومان</div>
-          <div>لودر: <span id="materialsLoader">0</span> تومان</div>
-          <div>انعام: <span id="materialsTip">0</span> تومان</div>
-          <div>سایر: <span id="materialsExtra">0</span> تومان</div>
-          <hr>
-          <b>مبلغ کل پرداختی: <span id="materialsTotal">0</span> تومان</b>
-        </div>
+          <label>سایر هزینه‌ها (تومان) - اختیاری</label>
+          <input type="number" name="extraFees" placeholder="مثلا 30000" />
 
-        <button type="button" class="btn" id="payMaterialsBtn">پرداخت مبلغ کل با زیبال</button>
-      </form>
+          <div class="card">
+            <p>جمع شن و ماسه: <span id="materialsSubtotal">0</span> تومان</p>
+            <p>حمل و نقل: <span id="materialsTransport">0</span> تومان</p>
+            <p>لودر/بیل: <span id="materialsLoader">0</span> تومان</p>
+            <p>انعام: <span id="materialsTip">0</span> تومان</p>
+            <p>سایر هزینه‌ها: <span id="materialsExtra">0</span> تومان</p>
+            <hr>
+            <p><b>مبلغ کل پرداختی: <span id="materialsTotal">0</span> تومان</b></p>
+          </div>
+
+          <button type="button" id="payMaterialsBtn" class="btn-primary">پرداخت مبلغ کل با زیبال</button>
+        </form>
+      </div>
     </section>
   </main>
+
+  <footer class="container">
+    <small>© 2025 شرکت پارسا هلدینگ ایرانیان</small>
+  </footer>
 
   <script>
     const form = document.getElementById("materialsForm");
     const subtotalEl = document.getElementById("materialsSubtotal");
     const transportEl = document.getElementById("materialsTransport");
-    const loaderEl = document.getElementById("materialsLoader");
-    const tipEl = document.getElementById("materialsTip");
-    const extraEl = document.getElementById("materialsExtra");
-    const totalEl = document.getElementById("materialsTotal");
+    const loaderEl   = document.getElementById("materialsLoader");
+    const tipEl      = document.getElementById("materialsTip");
+    const extraEl    = document.getElementById("materialsExtra");
+    const totalEl    = document.getElementById("materialsTotal");
 
     const faToEn = (s='') => String(s)
-      .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0)-0x06F0))
-      .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0)-0x0660))
-      .replace(/[^0-9.]/g,'');
+      .replace(/[\\u06F0-\\u06F9]/g, d => String(d.charCodeAt(0)-0x06F0))
+      .replace(/[\\u0660-\\u0669]/g, d => String(d.charCodeAt(0)-0x0660))
+      .replace(/[٬،,\\s]/g,'');
 
-    const toNum = v => {const n=Number(faToEn(v)); return isFinite(n)?n:0};
-    const fmt = n => new Intl.NumberFormat('fa-IR').format(Math.round(n||0));
-
-    function calcTotals(){
-      const data = new FormData(form);
-      const unitPrice=380000;
-      const qty=toNum(data.get('qty'));
-      const transport=toNum(data.get('transportPerKm'))*toNum(data.get('distanceKm'));
-      const loader=toNum(data.get('loaderRate'))*toNum(data.get('loaderHours'));
-      const tip=toNum(data.get('tipAmount'));
-      const extra=toNum(data.get('extraFees'));
-      const subtotal=unitPrice*qty;
-      const total=subtotal+transport+loader+tip+extra;
-      return {subtotal,transport,loader,tip,extra,total,qty};
-    }
+    const toNum = v => { const n = Number(faToEn(v)); return isFinite(n) ? n : 0; };
+    const fmt   = n => new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(n||0)));
 
     function calcTotals(){
       const d = new FormData(form);
-      const unitPrice = 380000; // تومان/تن (ثابت)
+      const unitPrice = 380000;
       const qty       = toNum(d.get('qty'));
       const transport = toNum(d.get('transportPerKm')) * toNum(d.get('distanceKm'));
       const loader    = toNum(d.get('loaderRate'))     * toNum(d.get('loaderHours'));
       const tip       = toNum(d.get('tipAmount'));
       const extra     = toNum(d.get('extraFees'));
       const subtotal  = unitPrice * qty;
-      const total     = subtotal + transport + loader + tip + extra; // تومان
+      const total     = subtotal + transport + loader + tip + extra;
       return { subtotal, transport, loader, tip, extra, total, qty };
     }
 
     function update(){
       const { subtotal, transport, loader, tip, extra, total } = calcTotals();
-      subtotalEl.textContent=fmt(subtotal);
-      transportEl.textContent=fmt(transport);
-      loaderEl.textContent=fmt(loader);
-      tipEl.textContent=fmt(tip);
-      extraEl.textContent=fmt(extra);
-      totalEl.textContent=fmt(total);
-    }=calcTotals();
-      subtotalEl.textContent=fmt(subtotal);
-      transportEl.textContent=fmt(transport);
-      loaderEl.textContent=fmt(loader);
-      tipEl.textContent=fmt(tip);
-      extraEl.textContent=fmt(extra);
-      totalEl.textContent=fmt(total);
+      subtotalEl.textContent = fmt(subtotal);
+      transportEl.textContent= fmt(transport);
+      loaderEl.textContent   = fmt(loader);
+      tipEl.textContent      = fmt(tip);
+      extraEl.textContent    = fmt(extra);
+      totalEl.textContent    = fmt(total);
     }
 
-    form.addEventListener('input',update);
+    form.addEventListener('input', update);
     update();
 
-    document.getElementById('payMaterialsBtn').addEventListener('click', async()=>{
+    document.getElementById('payMaterialsBtn').addEventListener('click', async ()=>{
       const { total, qty } = calcTotals();
       if(total < 1000){ alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.'); return; }
       try{
-        const res = await fetch('/api/zibal/request', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ amount: Math.round(total)*10, description: `خرید ${qty} تن شن و ماسه با نرخ ۳۸۰,۰۰۰ تومان/تن + هزینه‌های جانبی` }) });
+        const res = await fetch('/api/zibal/request', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            amount: Math.round(total)*10, // تومان → ریال
+            description: `خرید ${qty} تن شن و ماسه + هزینه‌های جانبی`,
+            orderId: `MAT-${Date.now()}`
+          })
+        });
         const json = await res.json();
-        if(json?.result===100 && json?.trackId){ location.href = `https://gateway.zibal.ir/start/${json.trackId}`; }
-        else { alert(json?.message || 'خطا در ایجاد تراکنش'); }
-      }catch{ alert('ارتباط با سرور برقرار نشد.'); }
-    });
-      if(total<1000){alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.');return}
-      try{
-        const res=await fetch('/api/zibal/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:Math.round(total)*10,description:`خرید ${qty} تن شن و ماسه با نرخ ۳۸۰,۰۰۰ تومان/تن + هزینه‌های جانبی`,orderId:`MAT-${Date.now()}`})});
-        const json=await res.json();
-        if(json?.result===100&&json?.trackId){location.href=`https://gateway.zibal.ir/start/${json.trackId}`}else{alert(json?.message||'خطا در ایجاد تراکنش')}
-      }catch{alert('ارتباط با سرور برقرار نشد.')}
+        if(json?.result===100 && json?.trackId){
+          location.href = `https://gateway.zibal.ir/start/${json.trackId}`;
+        } else {
+          alert(json?.message || 'خطا در ایجاد تراکنش');
+        }
+      }catch{
+        alert('ارتباط با سرور برقرار نشد.');
+      }
     });
   </script>
 </body>
