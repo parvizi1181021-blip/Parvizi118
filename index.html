@@ -3,8 +3,6 @@
 <head>
   <!-- Favicon (SVG) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='none'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2316a34a'/%3E%3Cg transform='translate(20 20)'%3E%3Cpath d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='%23041019' opacity='.25'/%3E%3Cpath d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='%23e2e8f0'/%3E%3Cpath d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='%23041019' opacity='.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
-  <!-- Favicon (SVG) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='none'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2316a34a'/%3E%3Cg transform='translate(20 20)'%3E%3Cpath d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='%23041019' opacity='.25'/%3E%3Cpath d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='%23e2e8f0'/%3E%3Cpath d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='%23041019' opacity='.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>شرکت پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، شهری، راه‌سازی و معدنی</title>
@@ -68,7 +66,7 @@
 
   <main class="container">
     <!-- محاسبه و پرداخت مصالح -->
-    <section id=\"materials\" style=\"background:linear-gradient(rgba(11,18,32,.6), rgba(11,18,32,.6)), url('https://picsum.photos/id/1050/1600/800') center/cover no-repeat; padding:2rem; border-radius:18px;\">
+    <section id="materials" style="background:linear-gradient(rgba(11,18,32,.6), rgba(11,18,32,.6)), url('https://picsum.photos/id/1050/1600/800') center/cover no-repeat; padding:2rem; border-radius:18px;">
       <h2>محاسبه و پرداخت مصالح (شن و ماسه)</h2>
       <div class="grid two">
         <div class="card">
@@ -76,20 +74,13 @@
           <form id="materialsForm">
             <div class="grid two">
               <div>
-                <label class="muted">قیمت واحد ماسه (تومان/تن) — ثابت</label>
-                <input type="number" name="sandPrice" value="380000" disabled />
+                <label class="muted">قیمت واحد شن و ماسه (تومان/تن) — ثابت</label>
+                <input type="number" value="380000" disabled />
+                <input type="hidden" name="unitPrice" value="380000" />
               </div>
               <div>
-                <label class="muted">مقدار ماسه (تن)</label>
-                <input type="number" name="sandQty" min="0" step="0.1" placeholder="مثلاً 10" required />
-              </div>
-              <div>
-                <label class="muted">قیمت واحد شن (تومان/تن) — ثابت</label>
-                <input type="number" name="gravelPrice" value="380000" disabled />
-              </div>
-              <div>
-                <label class="muted">مقدار شن (تن)</label>
-                <input type="number" name="gravelQty" min="0" step="0.1" placeholder="مثلاً 5" required />
+                <label class="muted">مقدار کل شن و ماسه (تن)</label>
+                <input type="number" name="qty" min="0" step="0.1" placeholder="مثلاً 12" required />
               </div>
               <div>
                 <label class="muted">هزینه حمل (تومان/کیلومتر) - اختیاری</label>
@@ -118,7 +109,7 @@
             </div>
             <div class="card" style="margin-top:.6rem">
               <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
-                <div class="muted">جمع جزء (ماسه + شن):</div>
+                <div class="muted">جمع شن و ماسه:</div>
                 <div id="materialsSubtotal"><b>0</b> تومان</div>
               </div>
               <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
@@ -260,7 +251,73 @@
           </form>
         </div>
       </div>
+      
+    <!-- محاسبه و پرداخت مصالح -->
+    <section id="materials">
+      <h2>محاسبه و پرداخت مصالح (شن و ماسه)</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>فرم محاسبه</h3>
+          <form id="materialsForm">
+            <div class="grid two">
+              <div>
+                <label class="muted">قیمت واحد ماسه (تومان/تن)</label>
+                <input type="number" name="sandPrice" min="0" step="1000" placeholder="مثلاً 350000" required />
+              </div>
+              <div>
+                <label class="muted">مقدار ماسه (تن)</label>
+                <input type="number" name="sandQty" min="0" step="0.1" placeholder="مثلاً 10" required />
+              </div>
+              <div>
+                <label class="muted">قیمت واحد شن (تومان/تن)</label>
+                <input type="number" name="gravelPrice" min="0" step="1000" placeholder="مثلاً 400000" required />
+              </div>
+              <div>
+                <label class="muted">مقدار شن (تن)</label>
+                <input type="number" name="gravelQty" min="0" step="0.1" placeholder="مثلاً 5" required />
+              </div>
+              <div>
+                <label class="muted">هزینه حمل (تومان/کیلومتر) - اختیاری</label>
+                <input type="number" name="transportPerKm" min="0" step="1000" placeholder="مثلاً 8000" />
+              </div>
+              <div>
+                <label class="muted">مسافت حمل (کیلومتر) - اختیاری</label>
+                <input type="number" name="distanceKm" min="0" step="1" placeholder="مثلاً 20" />
+              </div>
+            </div>
+            <div class="card" style="margin-top:.6rem">
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">جمع جزء (ماسه + شن):</div>
+                <div id="materialsSubtotal"><b>0</b> تومان</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">حمل و نقل:</div>
+                <div id="materialsTransport">0 تومان</div>
+              </div>
+              <hr style="border-color:#334155">
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div><b>مبلغ کل پرداختی</b></div>
+                <div id="materialsTotal" style="font-weight:800;font-size:1.1rem">0 تومان</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+              <button type="button" class="btn" id="calcBtn">محاسبه</button>
+              <button type="button" class="btn primary" id="payMaterialsBtn">پرداخت مبلغ کل با زیبال</button>
+            </div>
+            <p id="materialsStatus" class="muted" aria-live="polite"></p>
+          </form>
+        </div>
+        <div class="card">
+          <h3>توضیحات</h3>
+          <ul class="muted">
+            <li>قیمت‌ها به <b>تومان</b> است و در مرحله پرداخت به <b>ریال</b> تبدیل می‌شود.</li>
+            <li>اگر حمل را وارد نکنید، فقط جمع قیمت شن و ماسه محاسبه می‌شود.</li>
+            <li>پس از پرداخت، رسید و شماره پیگیری نمایش داده می‌شود.</li>
+          </ul>
+        </div>
+      </div>
     </section>
+
   </main>
 
   <footer class="container">
@@ -333,19 +390,19 @@
     function readValues(){
       const d = Object.fromEntries(new FormData(matForm));
       const unitPrice = 380000; // تومان/تن (ثابت)
-      const qty = num(d.qty||0);
-      const transportPerKm = num(d.transportPerKm||0);
-      const distanceKm = num(d.distanceKm||0);
-      const loaderRate = num(d.loaderRate||0);
-      const loaderHours = num(d.loaderHours||0);
-      const tipAmount = num(d.tipAmount||0);
-      const extraFees = num(d.extraFees||0);
+      const qty = num(d.qty);
+      const transportPerKm = num(d.transportPerKm);
+      const distanceKm = num(d.distanceKm);
+      const loaderRate = num(d.loaderRate);
+      const loaderHours = num(d.loaderHours);
+      const tipAmount = num(d.tipAmount);
+      const extraFees = num(d.extraFees);
 
-      const subtotal = unitPrice * qty; // تومان
-      const transport = transportPerKm * distanceKm; // تومان
-      const loaderCost = loaderRate * loaderHours; // تومان
-      const total = subtotal + transport + loaderCost + tipAmount + extraFees; // تومان
-      return { subtotal, transport, loaderCost, tipAmount, extraFees, total, d, qty, unitPrice };
+      const subtotal = unitPrice * qty;
+      const transport = transportPerKm * distanceKm;
+      const loaderCost = loaderRate * loaderHours;
+      const total = subtotal + transport + loaderCost + tipAmount + extraFees;
+      return { subtotal, transport, loaderCost, tipAmount, extraFees, total, qty, unitPrice };
     }
 
     function updateUI(){
@@ -358,19 +415,40 @@
       st.total.textContent = `${fmt(total)} تومان`;
     }
 
-    // محاسبه خودکار هنگام تغییر ورودی‌ها
     matForm?.addEventListener('input', updateUI);
     calcBtn?.addEventListener('click', updateUI);
 
     payMaterialsBtn?.addEventListener('click', async ()=>{
-      const {total, d, qty, unitPrice} = readValues();
+      const {total, qty, unitPrice} = readValues();
+      st.status.textContent = '';
+      if(total < 1000){ st.status.textContent = 'مبلغ کل کمتر از ۱,۰۰۰ تومان است.'; return; }
+      try{
+        const res = await fetch('/api/zibal/request',{
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ amount: total*10,
+                                 description: `خرید ${qty} تن شن و ماسه با نرخ ${unitPrice.toLocaleString('fa-IR')} تومان/تن + هزینه جانبی`,
+                                 orderId: `MAT-${Date.now()}` })
+        });
+        const json = await res.json();
+        if(json?.result === 100 && json?.trackId){
+          window.location.href = `https://gateway.zibal.ir/start/${json.trackId}`;
+        }else{
+          st.status.textContent = json?.message || 'خطا در ایجاد تراکنش';
+        }
+      }catch(e){ st.status.textContent = 'ارتباط با سرور برقرار نشد.'; }
+    });
+
+    updateUI(); });
+
+    payMaterialsBtn?.addEventListener('click', async ()=>{
+      const {total, d} = readValues();
       st.status.textContent = '';
       if(total < 1000){ st.status.textContent = 'مبلغ کل کمتر از ۱,۰۰۰ تومان است.'; return; }
       try{
         const res = await fetch('/api/zibal/request',{
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ amount: total*10, // تومان→ریال
-                                 description: `خرید شن و ماسه ${qty} تن @${unitPrice.toLocaleString('fa-IR')} + هزینه‌های جانبی`,
+                                 description: `خرید مصالح: ماسه ${d.sandQty||0}تن @${d.sandPrice||0} + شن ${d.gravelQty||0}تن @${d.gravelPrice||0} + حمل ${d.transportPerKm||0}×${d.distanceKm||0}km`,
                                  orderId: `MAT-${Date.now()}` })
         });
         const json = await res.json();
@@ -432,7 +510,17 @@ export default async function handler(req) {
 
   <script type="text/plain" data-filename="api/zibal/verify.js">export const config = { runtime: 'edge' };
 
-const brandSVG = `\n<svg width="48" height="48" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="لوگوی پارسا">\n  <g fill='none'>\n    <circle cx='64' cy='64' r='60' fill='#16a34a'/>\n    <g transform='translate(20 20)'>\n      <path d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='#041019' opacity='.25'/>\n      <path d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='#e2e8f0'/>\n      <path d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='#041019' opacity='.5'/>\n    </g>\n  </g>\n</svg>`;
+const brandSVG = `
+<svg width="48" height="48" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="لوگوی پارسا">
+  <g fill='none'>
+    <circle cx='64' cy='64' r='60' fill='#16a34a'/>
+    <g transform='translate(20 20)'>
+      <path d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='#041019' opacity='.25'/>
+      <path d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='#e2e8f0'/>
+      <path d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='#041019' opacity='.5'/>
+    </g>
+  </g>
+</svg>`;
 
 const html = (ok, trackId, orderId, message) => `<!doctype html>
 <html lang='fa' dir='rtl'><meta charset='utf-8'>
