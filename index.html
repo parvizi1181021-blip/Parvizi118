@@ -328,33 +328,49 @@
       status: document.getElementById('materialsStatus')
     };
 
+    function num(v){ const n = Number(v); return isFinite(n) ? n : 0; }
+
     function readValues(){
       const d = Object.fromEntries(new FormData(matForm));
-      const sandPrice = 380000; // تومان/تن (ثابت)
-      const gravelPrice = 380000; // تومان/تن (ثابت)
-      const sandQty = Number(d.sandQty||0);
-      const gravelQty = Number(d.gravelQty||0);
-      const transportPerKm = Number(d.transportPerKm||0);
-      const distanceKm = Number(d.distanceKm||0);
-      const loaderRate = Number(d.loaderRate||0);
-      const loaderHours = Number(d.loaderHours||0);
-      const tipAmount = Number(d.tipAmount||0);
-      const extraFees = Number(d.extraFees||0);
+      const unitPrice = 380000; // تومان/تن (ثابت)
+      const qty = num(d.qty||0);
+      const transportPerKm = num(d.transportPerKm||0);
+      const distanceKm = num(d.distanceKm||0);
+      const loaderRate = num(d.loaderRate||0);
+      const loaderHours = num(d.loaderHours||0);
+      const tipAmount = num(d.tipAmount||0);
+      const extraFees = num(d.extraFees||0);
 
-      const subtotal = sandPrice*sandQty + gravelPrice*gravelQty; // تومان
-      const transport = transportPerKm*distanceKm; // تومان
-      const loaderCost = loaderRate*loaderHours; // تومان
-      const total = subtotal + transport + loaderCost + tipAmount + extra });
+      const subtotal = unitPrice * qty; // تومان
+      const transport = transportPerKm * distanceKm; // تومان
+      const loaderCost = loaderRate * loaderHours; // تومان
+      const total = subtotal + transport + loaderCost + tipAmount + extraFees; // تومان
+      return { subtotal, transport, loaderCost, tipAmount, extraFees, total, d, qty, unitPrice };
+    }
+
+    function updateUI(){
+      const {subtotal, transport, loaderCost, tipAmount, extraFees, total} = readValues();
+      st.subtotal.innerHTML = `<b>${fmt(subtotal)}</b> تومان`;
+      st.transport.textContent = `${fmt(transport)} تومان`;
+      st.loader.textContent = `${fmt(loaderCost)} تومان`;
+      st.tip.textContent = `${fmt(tipAmount)} تومان`;
+      st.extra.textContent = `${fmt(extraFees)} تومان`;
+      st.total.textContent = `${fmt(total)} تومان`;
+    }
+
+    // محاسبه خودکار هنگام تغییر ورودی‌ها
+    matForm?.addEventListener('input', updateUI);
+    calcBtn?.addEventListener('click', updateUI);
 
     payMaterialsBtn?.addEventListener('click', async ()=>{
-      const {total, d} = readValues();
+      const {total, d, qty, unitPrice} = readValues();
       st.status.textContent = '';
       if(total < 1000){ st.status.textContent = 'مبلغ کل کمتر از ۱,۰۰۰ تومان است.'; return; }
       try{
         const res = await fetch('/api/zibal/request',{
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({ amount: total*10, // تومان→ریال
-                                 description: `خرید مصالح: ماسه ${d.sandQty||0}تن @${d.sandPrice||0} + شن ${d.gravelQty||0}تن @${d.gravelPrice||0} + حمل ${d.transportPerKm||0}×${d.distanceKm||0}km`,
+                                 description: `خرید شن و ماسه ${qty} تن @${unitPrice.toLocaleString('fa-IR')} + هزینه‌های جانبی`,
                                  orderId: `MAT-${Date.now()}` })
         });
         const json = await res.json();
