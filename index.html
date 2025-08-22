@@ -3,177 +3,377 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>شرکت پارسا هلدینگ ایرانیان</title>
-  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، خدمات شهری، برنج‌کاری، راه‌سازی و معدنی. پرداخت امن با زیبال." />
+  <title>شرکت پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، شهری، راه‌سازی و معدنی</title>
+  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی و مکانیزاسیون، دامداری، خدمات شهری، برنج‌کاری و سورتینگ، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال." />
   <meta name="theme-color" content="#16a34a" />
+  <!-- Favicon (SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='none'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2316a34a'/%3E%3Cg transform='translate(20 20)'%3E%3Cpath d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='%23041019' opacity='.25'/%3E%3Cpath d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='%23e2e8f0'/%3E%3Cpath d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='%23041019' opacity='.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
-    body{font-family:'Vazirmatn',sans-serif;background:#0b1220;color:#e2e8f0;margin:0;padding:0}
-    header,footer{background:#0f172a;padding:1rem}
-    header nav a{color:#94a3b8;margin:0 .5rem;text-decoration:none}
+    :root{--bg:#0b1220;--card:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--brand:#16a34a;--brand2:#22c55e;--ring:#22c55e}
+    *{box-sizing:border-box} body{font-family:'Vazirmatn',system-ui,-apple-system,Segoe UI,Roboto;background:var(--bg);color:var(--text);margin:0}
+    a{text-decoration:none;color:inherit} img{max-width:100%;height:auto}
     .container{max-width:1200px;margin:auto;padding:1rem}
-    h2{margin-top:1rem;color:#22c55e}
-    .card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:1rem;margin-bottom:1rem}
-    input,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0}
-    button{padding:.7rem 1rem;border:none;border-radius:8px;cursor:pointer;font-weight:600}
-    .btn-primary{background:#16a34a;color:#041019}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.7);backdrop-filter:blur(10px);border-bottom:1px solid #334155}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
+    .brand .logo{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 120deg,var(--brand),var(--brand2));display:grid;place-items:center}
+    .menu{display:flex;gap:1rem;flex-wrap:wrap} .menu a{color:var(--muted);font-weight:600} .menu a:hover{color:var(--text)}
+    .btn{padding:.7rem 1rem;border-radius:10px;display:inline-flex;gap:.4rem;align-items:center;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(34,197,94,.2),rgba(34,197,94,.08));font-weight:600}
+    .btn.primary{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#041019;border:none}
+    .grid{display:grid;gap:1rem} .grid.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))} .grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:var(--card);border:1px solid #334155;border-radius:14px;padding:1rem}
+    .muted{color:var(--muted)} form{display:grid;gap:.6rem}
+    input,textarea{padding:.7rem;border-radius:10px;border:1px solid #334155;background:#0f172a;color:var(--text)} input:focus,textarea:focus{outline:2px solid var(--ring)}
+    section{padding:1.2rem 0;border-bottom:1px dashed #334155}
+    footer{padding:20px;color:#94a3b8}
   </style>
 </head>
 <body>
   <header>
-    <nav class="container">
-      <a href="#materials">پرداخت مصالح</a>
-      <a href="#services">خدمات</a>
-      <a href="#rice">برنج‌کاری</a>
-      <a href="#mining">راه‌سازی و معدنی</a>
-      <a href="#contact">تماس</a>
-    </nav>
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="لوگو">
+        <span class="logo" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g fill="none">
+            <circle cx="64" cy="64" r="60" fill="#16a34a"/><g transform="translate(20 20)">
+            <path d="M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z" fill="#041019" opacity=".25"/>
+            <path d="M28 68c18 0 32-14 32-32C41 38 28 50 28 68z" fill="#e2e8f0"/>
+            <path d="M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z" fill="#041019" opacity=".5"/></g></g>
+          </svg>
+        </span>
+        <span>شرکت پارسا هلدینگ ایرانیان</span>
+      </a>
+      <nav class="menu">
+        <a href="#services">خدمات</a>
+        <a href="#rice">برنج‌کاری</a>
+        <a href="#mining">راه‌سازی و معدنی</a>
+        <a href="#contact">تماس و پرداخت</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">
-    <!-- فرم شن و ماسه -->
-    <section id="materials">
-      <h2>محاسبه و پرداخت شن و ماسه</h2>
-      <div class="card">
-        <form id="materialsForm">
-          <label>قیمت واحد (تومان/تن): ۳۸۰,۰۰۰ (ثابت)</label>
-          <input type="hidden" name="unitPrice" value="380000" />
+    <!-- محاسبه و پرداخت مصالح (شن و ماسه) - یک آیتم -->
+    <section id="materials" style="background:linear-gradient(rgba(11,18,32,.6), rgba(11,18,32,.6)), url('https://picsum.photos/id/1050/1600/800') center/cover no-repeat; padding:2rem; border-radius:18px;">
+      <h2>محاسبه و پرداخت مصالح (شن و ماسه)</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>فرم محاسبه</h3>
+          <form id="materialsForm">
+            <div class="grid two">
+              <div>
+                <label class="muted">قیمت واحد شن‌وماسه (تومان/تن) — ثابت</label>
+                <input type="number" value="380000" disabled />
+                <input type="hidden" name="unitPrice" value="380000" />
+              </div>
+              <div>
+                <label class="muted">مقدار کل (تن)</label>
+                <input type="number" name="qty" min="0" step="0.1" placeholder="مثلاً 12" required />
+              </div>
+              <div>
+                <label class="muted">هزینه حمل (تومان/کیلومتر) - اختیاری</label>
+                <input type="number" name="transportPerKm" min="0" step="1000" placeholder="مثلاً 8000" />
+              </div>
+              <div>
+                <label class="muted">مسافت حمل (کیلومتر) - اختیاری</label>
+                <input type="number" name="distanceKm" min="0" step="1" placeholder="مثلاً 20" />
+              </div>
+              <div>
+                <label class="muted">لودر / بیل مکانیکی (تومان/ساعت) - اختیاری</label>
+                <input type="number" name="loaderRate" min="0" step="10000" placeholder="مثلاً 300000" />
+              </div>
+              <div>
+                <label class="muted">مدت کار لودر/بیل (ساعت) - اختیاری</label>
+                <input type="number" name="loaderHours" min="0" step="0.5" placeholder="مثلاً 2" />
+              </div>
+              <div>
+                <label class="muted">انعام (تومان) - اختیاری</label>
+                <input type="number" name="tipAmount" min="0" step="1000" placeholder="مثلاً 50000" />
+              </div>
+              <div>
+                <label class="muted">سایر هزینه‌ها (تومان) - اختیاری</label>
+                <input type="number" name="extraFees" min="0" step="1000" placeholder="مثلاً 30000" />
+              </div>
+            </div>
 
-          <label>مقدار کل (تن)</label>
-          <input type="number" name="qty" placeholder="مثلا 10" required />
+            <div class="card" style="margin-top:.6rem">
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">جمع شن و ماسه:</div>
+                <div id="materialsSubtotal"><b>0</b> تومان</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">حمل و نقل:</div>
+                <div id="materialsTransport">0 تومان</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">لودر / بیل مکانیکی:</div>
+                <div id="materialsLoader">0 تومان</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">انعام:</div>
+                <div id="materialsTip">0 تومان</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div class="muted">سایر هزینه‌ها:</div>
+                <div id="materialsExtra">0 تومان</div>
+              </div>
+              <hr style="border-color:#334155">
+              <div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap">
+                <div><b>مبلغ کل پرداختی</b></div>
+                <div id="materialsTotal" style="font-weight:800;font-size:1.1rem">0 تومان</div>
+              </div>
+            </div>
 
-          <label>هزینه حمل (تومان/کیلومتر) - اختیاری</label>
-          <input type="number" name="transportPerKm" placeholder="مثلا 8000" />
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+              <button type="button" class="btn" id="calcBtn">محاسبه</button>
+              <button type="button" class="btn primary" id="payMaterialsBtn">پرداخت مبلغ کل با زیبال</button>
+            </div>
+            <p id="materialsStatus" class="muted" aria-live="polite"></p>
+          </form>
+        </div>
 
-          <label>مسافت حمل (کیلومتر) - اختیاری</label>
-          <input type="number" name="distanceKm" placeholder="مثلا 20" />
-
-          <label>لودر/بیل مکانیکی (تومان/ساعت) - اختیاری</label>
-          <input type="number" name="loaderRate" placeholder="مثلا 300000" />
-
-          <label>مدت کار (ساعت) - اختیاری</label>
-          <input type="number" name="loaderHours" placeholder="مثلا 2" />
-
-          <label>انعام (تومان) - اختیاری</label>
-          <input type="number" name="tipAmount" placeholder="مثلا 50000" />
-
-          <label>سایر هزینه‌ها (تومان) - اختیاری</label>
-          <input type="number" name="extraFees" placeholder="مثلا 30000" />
-
-          <div class="card">
-            <p>جمع شن و ماسه: <span id="materialsSubtotal">0</span> تومان</p>
-            <p>حمل و نقل: <span id="materialsTransport">0</span> تومان</p>
-            <p>لودر/بیل: <span id="materialsLoader">0</span> تومان</p>
-            <p>انعام: <span id="materialsTip">0</span> تومان</p>
-            <p>سایر هزینه‌ها: <span id="materialsExtra">0</span> تومان</p>
-            <hr>
-            <p><b>مبلغ کل پرداختی: <span id="materialsTotal">0</span> تومان</b></p>
-          </div>
-
-          <button type="button" id="payMaterialsBtn" class="btn-primary">پرداخت مبلغ کل با زیبال</button>
-        </form>
+        <div class="card">
+          <h3>توضیحات</h3>
+          <ul class="muted">
+            <li>قیمت ثابت: <b>۳۸۰,۰۰۰ تومان به ازای هر تن</b>.</li>
+            <li>همه ورودی‌ها به تومان است و هنگام پرداخت به <b>ریال</b> تبدیل می‌شود.</li>
+            <li>پس از پرداخت، رسید و شماره پیگیری نمایش داده می‌شود.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- سایر خدمات -->
+    <!-- خدمات -->
     <section id="services">
       <h2>خدمات ما</h2>
-      <div class="card"><b>کشاورزی و مکانیزاسیون:</b> شخم، دیسک، بذرپاشی، سمپاشی، برداشت مکانیزه…</div>
-      <div class="card"><b>دامداری:</b> بهداشت دام، جیره‌نویسی، خرید و فروش دام…</div>
-      <div class="card"><b>خدمات شهری:</b> فضای سبز، آبیاری، هرس، جمع‌آوری پسماند…</div>
+      <div class="grid three">
+        <div class="card"><h3>کشاورزی و مکانیزاسیون</h3><p class="muted">شخم، دیسک، بذرپاشی، سمپاشی پهپادی، کوددهی، برداشت مکانیزه و مشاوره کشت اقتصادی.</p></div>
+        <div class="card"><h3>دامداری و امور دامی</h3><p class="muted">بهداشت و واکسیناسیون، جیره‌نویسی، خرید و فروش دام، احداث و بهینه‌سازی دامداری.</p></div>
+        <div class="card"><h3>خدمات شهری و فضای سبز</h3><p class="muted">هِرس، چمن‌زنی، آبیاری قطره‌ای، جمع‌آوری پسماند سبز، طراحی و نگهداری پارک‌ها.</p></div>
+      </div>
     </section>
 
+    <!-- برنج‌کاری -->
     <section id="rice">
-      <h2>برنج‌کاری و سورتینگ</h2>
-      <div class="card">نشاکاری مکانیزه، مدیریت آب، برداشت کم‌تلفات، سورتینگ و بسته‌بندی استاندارد.</div>
+      <h2>برنج‌کاری و سورتینگ — تخصص ما</h2>
+      <div class="grid two">
+        <div class="card">
+          <p>از خزانه تا برداشت: نشاکاری مکانیزه، کنترل آفات، مدیریت آب، برداشت کم‌تلفات و خشک‌کنی. خروجی، برنج یکنواخت با <b>سورتینگ لیزری</b> و بسته‌بندی استاندارد است.</p>
+          <ul class="muted"><li>✅ نشاکاری و برداشت مکانیزه</li><li>✅ سورتینگ چندمرحله‌ای</li><li>✅ گزارش‌دهی مرحله‌ای</li></ul>
+        </div>
+        <div><img src="https://picsum.photos/id/1043/1200/800" loading="lazy" decoding="async" alt="برنج‌کاری و سورتینگ" width="1200" height="800"/></div>
+      </div>
     </section>
 
+    <!-- راه‌سازی و معدنی -->
     <section id="mining">
-      <h2>راه‌سازی و معدنی</h2>
-      <div class="card">🚧 زیرسازی، رگلاژ، کوبش، اساس و آسفالت  
-      ⛏️ استخراج، دپو، حمل و بارگیری  
-      🪨 تولید شن‌وماسه با سنگ‌شکن استاندارد</div>
+      <h2>راه‌سازی و فعالیت‌های معدنی</h2>
+      <div class="card" style="background:linear-gradient(90deg, rgba(34,197,94,.25), rgba(16,185,129,.15));border-color:rgba(34,197,94,.35)">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between">
+          <div><b>🚧 راه‌سازی:</b> زیرسازی، رگلاژ، کوبش، اساس/زیر‌اساس و آسفالت</div>
+          <div><b>⛏️ معدنی:</b> استخراج، دپو، حمل و بارگیری</div>
+          <div><b>🪨 سنگ‌شکن:</b> تولید شن‌وماسه با دانه‌بندی استاندارد</div>
+        </div>
+      </div>
     </section>
 
+    <!-- تماس و پرداخت‌های متفرقه -->
     <section id="contact">
-      <h2>تماس</h2>
-      <div class="card">
-        <p>📞 09131181021</p>
-        <p>☎️ 02191690400</p>
-        <p>✉️ Parvizi118@yahoo.com</p>
+      <h2>تماس و پرداخت</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>اطلاعات تماس</h3>
+          <p>📞 09131181021<br>☎️ 02191690400<br>✉️ Parvizi118@yahoo.com</p>
+          <div style="margin-top:.6rem">
+            <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=639711&Code=tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj">
+              <img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=639711&Code=tCYFGqs9cFHYGwq6yYb1DKuDdQxzz5Kj" alt="اینماد" style="cursor:pointer">
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>پرداخت مستقیم با زیبال (مبلغ دلخواه)</h3>
+          <form id="zibalForm">
+            <input type="number" name="amount" min="1000" step="1000" placeholder="مبلغ (تومان)" required />
+            <input type="tel" name="mobile" placeholder="شماره موبایل (اختیاری)" />
+            <input type="text" name="orderId" placeholder="کد سفارش (اختیاری)" />
+            <textarea name="description" placeholder="توضیحات (اختیاری)"></textarea>
+            <button class="btn primary" type="submit">پرداخت با زیبال</button>
+            <p id="zibalStatus" class="muted" aria-live="polite"></p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="container">
-    <small>© 2025 شرکت پارسا هلدینگ ایرانیان</small>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <svg width="28" height="28" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="لوگو">
+        <g fill="none"><circle cx="64" cy="64" r="60" fill="#16a34a"/><g transform="translate(20 20)">
+          <path d="M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z" fill="#041019" opacity=".25"/>
+          <path d="M28 68c18 0 32-14 32-32C41 38 28 50 28 68z" fill="#e2e8f0"/>
+          <path d="M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z" fill="#041019" opacity=".5"/></g></g>
+      </svg>
+      <small>© <span id="year"></span> شرکت پارسا هلدینگ ایرانیان. همه حقوق محفوظ است.</small>
+    </div>
   </footer>
 
   <script>
+    // سال جاری
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // زیبال: پرداخت مبلغ دلخواه
+    const zibalForm = document.getElementById('zibalForm');
+    const zibalStatus = document.getElementById('zibalStatus');
+    zibalForm?.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      zibalStatus.textContent = '';
+      const data = Object.fromEntries(new FormData(zibalForm));
+      const amountToman = Number(data.amount || 0);
+      if(!amountToman || amountToman < 1000){
+        zibalStatus.textContent = 'مبلغ معتبر وارد کنید (حداقل ۱,۰۰۰ تومان).'; return;
+      }
+      try{
+        const res = await fetch('/api/zibal/request', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ amount: amountToman * 10, mobile: data.mobile||'', description: data.description||'', orderId: data.orderId||'' })
+        });
+        const json = await res.json();
+        if(json?.result === 100 && json?.trackId){ location.href = `https://gateway.zibal.ir/start/${json.trackId}`; }
+        else { zibalStatus.textContent = json?.message || 'خطا در ایجاد تراکنش'; }
+      }catch{ zibalStatus.textContent = 'ارتباط با سرور برقرار نشد.'; }
+    });
+
+    // ماشین‌حساب شن‌وماسه (پشتیبانی از ارقام فارسی/عربی)
     const form = document.getElementById("materialsForm");
     const subtotalEl = document.getElementById("materialsSubtotal");
     const transportEl = document.getElementById("materialsTransport");
-    const loaderEl   = document.getElementById("materialsLoader");
-    const tipEl      = document.getElementById("materialsTip");
-    const extraEl    = document.getElementById("materialsExtra");
-    const totalEl    = document.getElementById("materialsTotal");
+    const loaderEl = document.getElementById("materialsLoader");
+    const tipEl = document.getElementById("materialsTip");
+    const extraEl = document.getElementById("materialsExtra");
+    const totalEl = document.getElementById("materialsTotal");
 
     const faToEn = (s='') => String(s)
-      .replace(/[\\u06F0-\\u06F9]/g, d => String(d.charCodeAt(0)-0x06F0))
-      .replace(/[\\u0660-\\u0669]/g, d => String(d.charCodeAt(0)-0x0660))
-      .replace(/[٬،,\\s]/g,'');
+      .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0) - 0x06F0))
+      .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660))
+      .replace(/[٬،,\s]/g, '');
 
-    const toNum = v => { const n = Number(faToEn(v)); return isFinite(n) ? n : 0; };
-    const fmt   = n => new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(n||0)));
-
-    function calcTotals(){
-      const d = new FormData(form);
-      const unitPrice = 380000;
-      const qty       = toNum(d.get('qty'));
-      const transport = toNum(d.get('transportPerKm')) * toNum(d.get('distanceKm'));
-      const loader    = toNum(d.get('loaderRate')) * toNum(d.get('loaderHours'));
-      const tip       = toNum(d.get('tipAmount'));
-      const extra     = toNum(d.get('extraFees'));
-      const subtotal  = unitPrice * qty;
-      const total     = subtotal + transport + loader + tip + extra;
-      return {subtotal, transport, loader, tip, extra, total, qty};
-    }
+    const toNum = v => { const n = Number(faToEn(v)); return Number.isFinite(n) ? n : 0; };
+    const fmt = n => new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(n||0)));
 
     function update(){
-      const {subtotal, transport, loader, tip, extra, total} = calcTotals();
-      subtotalEl.textContent = fmt(subtotal);
-      transportEl.textContent= fmt(transport);
-      loaderEl.textContent   = fmt(loader);
-      tipEl.textContent      = fmt(tip);
-      extraEl.textContent    = fmt(extra);
-      totalEl.textContent    = fmt(total);
+      const data = new FormData(form);
+      const unitPrice = 380000; // تومان/تن (ثابت)
+      const qty       = toNum(data.get('qty'));
+      const transport = toNum(data.get('transportPerKm')) * toNum(data.get('distanceKm'));
+      const loader    = toNum(data.get('loaderRate'))     * toNum(data.get('loaderHours'));
+      const tip       = toNum(data.get('tipAmount'));
+      const extra     = toNum(data.get('extraFees'));
+
+      const subtotal = unitPrice * qty;
+      const total    = subtotal + transport + loader + tip + extra;
+
+      subtotalEl.innerHTML   = `<b>${fmt(subtotal)}</b> تومان`;
+      transportEl.textContent= `${fmt(transport)} تومان`;
+      loaderEl.textContent   = `${fmt(loader)} تومان`;
+      tipEl.textContent      = `${fmt(tip)} تومان`;
+      extraEl.textContent    = `${fmt(extra)} تومان`;
+      totalEl.textContent    = `${fmt(total)} تومان`;
     }
+    form?.addEventListener('input', update);
+    document.getElementById('calcBtn')?.addEventListener('click', update);
 
-    form.addEventListener('input', update);
-    update();
+    // رفتن به درگاه بر اساس مبلغ کل
+    document.getElementById('payMaterialsBtn')?.addEventListener('click', async ()=>{
+      const data = new FormData(form);
+      const totalText = document.getElementById('materialsTotal').textContent || '0';
+      // از subtotal هم می‌توان استفاده کرد؛ ولی ما مبلغ کل را ارسال می‌کنیم:
+      const totalToman = Number(totalText.replace(/[^\d]/g,'')) || 0;
+      if(totalToman < 1000){ alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.'); return; }
 
-    document.getElementById('payMaterialsBtn').addEventListener('click', async ()=>{
-      const { total, qty } = calcTotals();
-      if(total < 1000){ alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.'); return; }
+      const qty = toNum(data.get('qty'));
       try{
         const res = await fetch('/api/zibal/request', {
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({
-            amount: Math.round(total)*10, // تومان → ریال
-            description: `خرید ${qty} تن شن و ماسه + هزینه‌های جانبی`,
+            amount: totalToman * 10, // تومان→ریال
+            description: `خرید ${qty} تن شن و ماسه با نرخ ۳۸۰,۰۰۰ تومان/تن + هزینه‌های جانبی`,
             orderId: `MAT-${Date.now()}`
           })
         });
         const json = await res.json();
-        if(json?.result===100 && json?.trackId){
-          location.href = `https://gateway.zibal.ir/start/${json.trackId}`;
-        } else {
-          alert(json?.message || 'خطا در ایجاد تراکنش');
-        }
-      }catch{
-        alert('ارتباط با سرور برقرار نشد.');
-      }
+        if(json?.result === 100 && json?.trackId){ location.href=`https://gateway.zibal.ir/start/${json.trackId}`; }
+        else { alert(json?.message || 'خطا در ایجاد تراکنش'); }
+      }catch{ alert('ارتباط با سرور برقرار نشد.'); }
     });
+
+    // مقداردهی اولیه
+    update();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <!-- ========= APIهای لازم برای Vercel ========= -->
+  <script type="text/plain" data-filename="api/zibal/request.js">export const config = { runtime: 'edge' };
+export default async function handler(req) {
+  if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 });
+  const body = await req.json();
+  const amount = Number(body.amount || 0);
+  const mobile = body.mobile || '';
+  const description = body.description || '';
+  const orderId = body.orderId || '';
+  if (!amount || amount < 1000) {
+    return new Response(JSON.stringify({ result: -1, message: 'amount (rial) required' }), { status: 400, headers: { 'Content-Type': 'application/json' }});
+  }
+  const merchant = process.env.ZIBAL_MERCHANT;
+  if (!merchant) {
+    return new Response(JSON.stringify({ result: -1, message: 'Missing ZIBAL_MERCHANT' }), { status: 500, headers: { 'Content-Type': 'application/json' }});
+  }
+  const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '');
+  const callbackUrl = `${base}/api/zibal/verify`;
+  const res = await fetch('https://gateway.zibal.ir/v1/request', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ merchant, amount, callbackUrl, orderId, description, mobile })
+  });
+  const data = await res.json();
+  return new Response(JSON.stringify(data), { status: res.ok ? 200 : 500, headers: { 'Content-Type': 'application/json' }});
+}
+</script>
+
+  <script type="text/plain" data-filename="api/zibal/verify.js">export const config = { runtime: 'edge' };
+const brandSVG = \`
+<svg width="48" height="48" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="لوگو">
+  <g fill='none'><circle cx='64' cy='64' r='60' fill='#16a34a'/>
+    <g transform='translate(20 20)'>
+      <path d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='#041019' opacity='.25'/>
+      <path d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='#e2e8f0'/>
+      <path d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='#041019' opacity='.5'/>
+    </g></g>
+</svg>\`;
+const html = (ok, trackId, orderId, message) => \`<!doctype html>
+<html lang='fa' dir='rtl'><meta charset='utf-8'><title>نتیجه پرداخت</title>
+<style>body{font-family:Tahoma,Arial;display:grid;place-items:center;height:100vh;background:#0b1220;color:#e2e8f0;margin:0}
+.card{max-width:560px;background:#0f172a;border:1px solid #334155;border-radius:14px;padding:20px;text-align:center}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:\${ok?'#16a34a':'#ef4444'};color:#041019;font-weight:700}
+a.btn{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:12px;background:#22c55e;color:#041019;text-decoration:none}
+.logo{display:grid;place-items:center;margin-bottom:10px}</style>
+<div class='card'><div class='logo'>\${brandSVG}</div>
+<span class='badge'>\${ok?'موفق':'ناموفق'}</span><h1>نتیجه پرداخت</h1>
+<p>\${message ?? ''}</p><p>شماره پیگیری: <b>\${trackId ?? '-'}</b></p><p>کد سفارش: <b>\${orderId ?? '-'}</b></p>
+<a class='btn' href='/'>بازگشت به سایت</a></div></html>\`;
+export default async function handler(req) {
+  const url = new URL(req.url);
+  const trackId = url.searchParams.get('trackId');
+  if (!trackId) return new Response(html(false, null, null, 'trackId یافت نشد'), { headers: { 'Content-Type': 'text/html; charset=utf-8' }});
+  const merchant = process.env.ZIBAL_MERCHANT;
+  if (!merchant) return new Response(html(false, null, null, 'merchant تنظیم نشده'), { headers: { 'Content-Type': 'text/html; charset=utf-8' }});
+  const res = await fetch('https://gateway.zibal.ir/v1/verify', {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ merchant, trackId })
+  });
+  const data = await res.json();
+  const ok = data?.result === 100;
+  return new Response(html(ok, String(trackId), data?.orderId ? String(data.orderId) : '', data?.message), {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' }, status: 200
+  });
+}
+</script>
 </body>
 </html>
