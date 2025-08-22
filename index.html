@@ -370,75 +370,39 @@
         zibalStatus.textContent = 'ارتباط با سرور برقرار نشد.';
       }
     });
-      // --- Materials calculator (شن و ماسه)
-    const fmt = (n)=> new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(n)));
-    const matForm = document.getElementById('materialsForm');
-    const calcBtn = document.getElementById('calcBtn');
-    const payMaterialsBtn = document.getElementById('payMaterialsBtn');
-    const st = {
-      subtotal: document.getElementById('materialsSubtotal'),
-      transport: document.getElementById('materialsTransport'),
-      loader: document.getElementById('materialsLoader'),
-      tip: document.getElementById('materialsTip'),
-      extra: document.getElementById('materialsExtra'),
-      total: document.getElementById('materialsTotal'),
-      status: document.getElementById('materialsStatus')
-    };
+      // --- Materials calculator (شن و ماسه) — نسخه ساده و تست‌شده
+  const form = document.getElementById("materialsForm");
+  const subtotalEl = document.getElementById("materialsSubtotal");
+  const transportEl = document.getElementById("materialsTransport");
+  const loaderEl = document.getElementById("materialsLoader");
+  const tipEl = document.getElementById("materialsTip");
+  const extraEl = document.getElementById("materialsExtra");
+  const totalEl = document.getElementById("materialsTotal");
 
-    function num(v){ const n = Number(v); return isFinite(n) ? n : 0; }
+  function fmt(num){ return new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(num||0))); }
 
-    function readValues(){
-      const d = Object.fromEntries(new FormData(matForm));
-      const unitPrice = 380000; // تومان/تن (ثابت)
-      const qty = num(d.qty);
-      const transportPerKm = num(d.transportPerKm);
-      const distanceKm = num(d.distanceKm);
-      const loaderRate = num(d.loaderRate);
-      const loaderHours = num(d.loaderHours);
-      const tipAmount = num(d.tipAmount);
-      const extraFees = num(d.extraFees);
+  function update(){
+    const data = new FormData(form);
+    const unitPrice = 380000; // ثابت: تومان/تن
+    const qty = Number(data.get('qty')) || 0;
+    const transport = (Number(data.get('transportPerKm'))||0) * (Number(data.get('distanceKm'))||0);
+    const loader = (Number(data.get('loaderRate'))||0) * (Number(data.get('loaderHours'))||0);
+    const tip = Number(data.get('tipAmount'))||0;
+    const extra = Number(data.get('extraFees'))||0;
 
-      const subtotal = unitPrice * qty;
-      const transport = transportPerKm * distanceKm;
-      const loaderCost = loaderRate * loaderHours;
-      const total = subtotal + transport + loaderCost + tipAmount + extraFees;
-      return { subtotal, transport, loaderCost, tipAmount, extraFees, total, qty, unitPrice };
-    }
+    const subtotal = unitPrice * qty;
+    const total = subtotal + transport + loader + tip + extra;
 
-    function updateUI(){
-      const {subtotal, transport, loaderCost, tipAmount, extraFees, total} = readValues();
-      st.subtotal.innerHTML = `<b>${fmt(subtotal)}</b> تومان`;
-      st.transport.textContent = `${fmt(transport)} تومان`;
-      st.loader.textContent = `${fmt(loaderCost)} تومان`;
-      st.tip.textContent = `${fmt(tipAmount)} تومان`;
-      st.extra.textContent = `${fmt(extraFees)} تومان`;
-      st.total.textContent = `${fmt(total)} تومان`;
-    }
+    subtotalEl.innerHTML = `<b>${fmt(subtotal)}</b> تومان`;
+    transportEl.textContent = `${fmt(transport)} تومان`;
+    loaderEl.textContent = `${fmt(loader)} تومان`;
+    tipEl.textContent = `${fmt(tip)} تومان`;
+    extraEl.textContent = `${fmt(extra)} تومان`;
+    totalEl.textContent = `${fmt(total)} تومان`;
+  }
 
-    matForm?.addEventListener('input', updateUI);
-    calcBtn?.addEventListener('click', updateUI);
-
-    payMaterialsBtn?.addEventListener('click', async ()=>{
-      const {total, qty, unitPrice} = readValues();
-      st.status.textContent = '';
-      if(total < 1000){ st.status.textContent = 'مبلغ کل کمتر از ۱,۰۰۰ تومان است.'; return; }
-      try{
-        const res = await fetch('/api/zibal/request',{
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ amount: total*10,
-                                 description: `خرید ${qty} تن شن و ماسه با نرخ ${unitPrice.toLocaleString('fa-IR')} تومان/تن + هزینه جانبی`,
-                                 orderId: `MAT-${Date.now()}` })
-        });
-        const json = await res.json();
-        if(json?.result === 100 && json?.trackId){
-          window.location.href = `https://gateway.zibal.ir/start/${json.trackId}`;
-        }else{
-          st.status.textContent = json?.message || 'خطا در ایجاد تراکنش';
-        }
-      }catch(e){ st.status.textContent = 'ارتباط با سرور برقرار نشد.'; }
-    });
-
-    updateUI(); });
+  form?.addEventListener('input', update);
+  update(); });
 
     payMaterialsBtn?.addEventListener('click', async ()=>{
       const {total, d} = readValues();
