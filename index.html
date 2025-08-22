@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>شرکت پارسا هلدینگ ایرانیان</title>
-  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، خدمات شهری، برنج‌کاری، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال." />
+  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، خدمات شهری، برنج‌کاری، راه‌سازی و معدنی. پرداخت امن با زیبال." />
   <meta name="theme-color" content="#16a34a" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -12,6 +12,7 @@
     header,footer{background:#0f172a;padding:1rem}
     header nav a{color:#94a3b8;margin:0 .5rem;text-decoration:none}
     .container{max-width:1200px;margin:auto;padding:1rem}
+    h2{margin-top:1rem;color:#22c55e}
     .card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:1rem;margin-bottom:1rem}
     input,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0}
     button{padding:.7rem 1rem;border:none;border-radius:8px;cursor:pointer;font-weight:600}
@@ -21,10 +22,11 @@
 <body>
   <header>
     <nav class="container">
+      <a href="#materials">پرداخت مصالح</a>
       <a href="#services">خدمات</a>
       <a href="#rice">برنج‌کاری</a>
       <a href="#mining">راه‌سازی و معدنی</a>
-      <a href="#contact">تماس و پرداخت</a>
+      <a href="#contact">تماس</a>
     </nav>
   </header>
 
@@ -72,6 +74,35 @@
         </form>
       </div>
     </section>
+
+    <!-- سایر خدمات -->
+    <section id="services">
+      <h2>خدمات ما</h2>
+      <div class="card"><b>کشاورزی و مکانیزاسیون:</b> شخم، دیسک، بذرپاشی، سمپاشی، برداشت مکانیزه…</div>
+      <div class="card"><b>دامداری:</b> بهداشت دام، جیره‌نویسی، خرید و فروش دام…</div>
+      <div class="card"><b>خدمات شهری:</b> فضای سبز، آبیاری، هرس، جمع‌آوری پسماند…</div>
+    </section>
+
+    <section id="rice">
+      <h2>برنج‌کاری و سورتینگ</h2>
+      <div class="card">نشاکاری مکانیزه، مدیریت آب، برداشت کم‌تلفات، سورتینگ و بسته‌بندی استاندارد.</div>
+    </section>
+
+    <section id="mining">
+      <h2>راه‌سازی و معدنی</h2>
+      <div class="card">🚧 زیرسازی، رگلاژ، کوبش، اساس و آسفالت  
+      ⛏️ استخراج، دپو، حمل و بارگیری  
+      🪨 تولید شن‌وماسه با سنگ‌شکن استاندارد</div>
+    </section>
+
+    <section id="contact">
+      <h2>تماس</h2>
+      <div class="card">
+        <p>📞 09131181021</p>
+        <p>☎️ 02191690400</p>
+        <p>✉️ Parvizi118@yahoo.com</p>
+      </div>
+    </section>
   </main>
 
   <footer class="container">
@@ -100,16 +131,16 @@
       const unitPrice = 380000;
       const qty       = toNum(d.get('qty'));
       const transport = toNum(d.get('transportPerKm')) * toNum(d.get('distanceKm'));
-      const loader    = toNum(d.get('loaderRate'))     * toNum(d.get('loaderHours'));
+      const loader    = toNum(d.get('loaderRate')) * toNum(d.get('loaderHours'));
       const tip       = toNum(d.get('tipAmount'));
       const extra     = toNum(d.get('extraFees'));
       const subtotal  = unitPrice * qty;
       const total     = subtotal + transport + loader + tip + extra;
-      return { subtotal, transport, loader, tip, extra, total, qty };
+      return {subtotal, transport, loader, tip, extra, total, qty};
     }
 
     function update(){
-      const { subtotal, transport, loader, tip, extra, total } = calcTotals();
+      const {subtotal, transport, loader, tip, extra, total} = calcTotals();
       subtotalEl.textContent = fmt(subtotal);
       transportEl.textContent= fmt(transport);
       loaderEl.textContent   = fmt(loader);
