@@ -6,7 +6,6 @@
   <title>شرکت پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، شهری، راه‌سازی و معدنی</title>
   <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی و مکانیزاسیون، دامداری، خدمات شهری، برنج‌کاری و سورتینگ، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال." />
   <meta name="theme-color" content="#16a34a" />
-  <!-- Favicon (SVG) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='none'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2316a34a'/%3E%3Cg transform='translate(20 20)'%3E%3Cpath d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='%23041019' opacity='.25'/%3E%3Cpath d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='%23e2e8f0'/%3E%3Cpath d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='%23041019' opacity='.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -221,7 +220,7 @@
     // سال جاری
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // زیبال: پرداخت مبلغ دلخواه
+    // پرداخت دلخواه زیبال
     const zibalForm = document.getElementById('zibalForm');
     const zibalStatus = document.getElementById('zibalStatus');
     zibalForm?.addEventListener('submit', async (e)=>{
@@ -243,7 +242,7 @@
       }catch{ zibalStatus.textContent = 'ارتباط با سرور برقرار نشد.'; }
     });
 
-    // ماشین‌حساب شن‌وماسه (پشتیبانی از ارقام فارسی/عربی)
+    // ===== ماشین‌حساب شن‌وماسه (ارقام فارسی/عربی) =====
     const form = document.getElementById("materialsForm");
     const subtotalEl = document.getElementById("materialsSubtotal");
     const transportEl = document.getElementById("materialsTransport");
@@ -253,25 +252,28 @@
     const totalEl = document.getElementById("materialsTotal");
 
     const faToEn = (s='') => String(s)
-      .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0) - 0x06F0))
-      .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660))
-      .replace(/[٬،,\s]/g, '');
+      .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0) - 0x06F0)) // ۰-۹ فارسی
+      .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660)) // ٠-٩ عربی
+      .replace(/[٬،,\s]/g, '');                                          // جداکننده‌ها
 
     const toNum = v => { const n = Number(faToEn(v)); return Number.isFinite(n) ? n : 0; };
     const fmt = n => new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(n||0)));
 
-    function update(){
+    function calcTotals(){
       const data = new FormData(form);
-      const unitPrice = 380000; // تومان/تن (ثابت)
+      const unitPrice = 380000; // تومان/تن
       const qty       = toNum(data.get('qty'));
       const transport = toNum(data.get('transportPerKm')) * toNum(data.get('distanceKm'));
       const loader    = toNum(data.get('loaderRate'))     * toNum(data.get('loaderHours'));
       const tip       = toNum(data.get('tipAmount'));
       const extra     = toNum(data.get('extraFees'));
+      const subtotal  = unitPrice * qty;
+      const total     = subtotal + transport + loader + tip + extra;
+      return {subtotal, transport, loader, tip, extra, total, qty};
+    }
 
-      const subtotal = unitPrice * qty;
-      const total    = subtotal + transport + loader + tip + extra;
-
+    function update(){
+      const {subtotal, transport, loader, tip, extra, total} = calcTotals();
       subtotalEl.innerHTML   = `<b>${fmt(subtotal)}</b> تومان`;
       transportEl.textContent= `${fmt(transport)} تومان`;
       loaderEl.textContent   = `${fmt(loader)} تومان`;
@@ -282,33 +284,26 @@
     form?.addEventListener('input', update);
     document.getElementById('calcBtn')?.addEventListener('click', update);
 
-    // رفتن به درگاه بر اساس مبلغ کل
+    // پرداخت بر اساس محاسبه مستقیم (نه خواندن متن صفحه)
     document.getElementById('payMaterialsBtn')?.addEventListener('click', async ()=>{
-      const data = new FormData(form);
-      const totalText = document.getElementById('materialsTotal').textContent || '0';
-      // از subtotal هم می‌توان استفاده کرد؛ ولی ما مبلغ کل را ارسال می‌کنیم:
-      const totalToman = Number(totalText.replace(/[^\d]/g,'')) || 0;
-      if(totalToman < 1000){ alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.'); return; }
-
-      const qty = toNum(data.get('qty'));
+      const { total, qty } = calcTotals(); // تومان
+      if(total < 1000){ alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.'); return; }
       try{
         const res = await fetch('/api/zibal/request', {
           method:'POST', headers:{'Content-Type':'application/json'},
           body: JSON.stringify({
-            amount: totalToman * 10, // تومان→ریال
+            amount: Math.round(total) * 10, // تومان → ریال
             description: `خرید ${qty} تن شن و ماسه با نرخ ۳۸۰,۰۰۰ تومان/تن + هزینه‌های جانبی`,
             orderId: `MAT-${Date.now()}`
           })
         });
         const json = await res.json();
-        if(json?.result === 100 && json?.trackId){ location.href=`https://gateway.zibal.ir/start/${json.trackId}`; }
+        if(json?.result === 100 && json?.trackId){ location.href = `https://gateway.zibal.ir/start/${json.trackId}`; }
         else { alert(json?.message || 'خطا در ایجاد تراکنش'); }
       }catch{ alert('ارتباط با سرور برقرار نشد.'); }
     });
 
-    // مقداردهی اولیه
-    update();
-    document.getElementById('year').textContent = new Date().getFullYear();
+    update(); // مقداردهی اولیه
   </script>
 
   <!-- ========= APIهای لازم برای Vercel ========= -->
