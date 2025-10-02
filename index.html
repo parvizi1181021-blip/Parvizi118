@@ -80,7 +80,7 @@
     const amount = document.querySelector('#specialProductForm input[name="amount"]').value;
     const product = document.querySelector('#specialProductForm input[name="productName"]').value;
     // لینک زرین پال
-    const zpMerchant = 'YOUR_ZP_MERCHANT_CODE';
+    const zpMerchant = '7b9a76db-61b3-4079-84f9-b79aaa7f261d';
     const callback = encodeURIComponent(window.location.href);
     const zpLink = `https://www.zarinpal.com/pg/StartPay/${zpMerchant}?Amount=${amount}&Description=${encodeURIComponent(product)}&CallbackURL=${callback}`;
     window.open(zpLink,'_blank');
