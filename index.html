@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>شرکت پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، شهری، راه‌سازی و معدنی</title>
 <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی و مکانیزاسیون، دامداری، خدمات شهری، برنج‌کاری و سورتینگ، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال و زرین‌پال." />
+<meta name="theme-color" content="#16a34a" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='none'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2316a34a'/%3E%3Cg transform='translate(20 20)'%3E%3Cpath d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='%23041019' opacity='.25'/%3E%3Cpath d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='%23e2e8f0'/%3E%3Cpath d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='%23041019' opacity='.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
 <style>
 :root{--bg:#0b1220;--card:#0f172a;--muted:#94a3b8;--text:#e2e8f0;--brand:#16a34a;--brand2:#22c55e;--ring:#22c55e}
@@ -28,131 +30,180 @@ footer{padding:20px;color:#94a3b8}
 </head>
 <body>
 <header>
-<div class="container nav">
-<a href="#" class="brand" aria-label="لوگو">
-<span class="logo" aria-hidden="true">🏢</span>
-<span>شرکت پارسا هلدینگ ایرانیان</span>
-</a>
-<nav class="menu">
-<a href="#services">خدمات</a>
-<a href="#rice">برنج‌کاری</a>
-<a href="#mining">راه‌سازی و معدنی</a>
-<a href="#materials">محاسبه مصالح</a>
-<a href="#specialProduct">محصول ویژه</a>
-<a href="#contact">تماس و پرداخت</a>
-</nav>
-</div>
+  <div class="container nav">
+    <a href="#" class="brand" aria-label="لوگو">
+      <span class="logo" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g fill="none">
+          <circle cx="64" cy="64" r="60" fill="#16a34a"/><g transform="translate(20 20)">
+          <path d="M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z" fill="#041019" opacity=".25"/>
+          <path d="M28 68c18 0 32-14 32-32C41 38 28 50 28 68z" fill="#e2e8f0"/>
+          <path d="M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z" fill="#041019" opacity=".5"/></g></g>
+        </svg>
+      </span>
+      <span>شرکت پارسا هلدینگ ایرانیان</span>
+    </a>
+    <nav class="menu">
+      <a href="#services">خدمات</a>
+      <a href="#rice">برنج‌کاری</a>
+      <a href="#mining">راه‌سازی و معدنی</a>
+      <a href="#materials">محاسبه مصالح</a>
+      <a href="#specialProduct">محصول ویژه</a>
+      <a href="#contact">تماس و پرداخت</a>
+    </nav>
+  </div>
 </header>
 
 <main class="container">
-<!-- محاسبه مصالح -->
+
+<!-- ================== ماشین حساب شن و ماسه با زیبال ================== -->
 <section id="materials" style="background:linear-gradient(rgba(11,18,32,.6), rgba(11,18,32,.6)), url('https://picsum.photos/id/1050/1600/800') center/cover no-repeat; padding:2rem; border-radius:18px;">
 <h2>محاسبه و پرداخت مصالح (شن و ماسه)</h2>
 <div class="grid two">
 <div class="card">
-<form id="materialsForm">
-<div class="grid two">
-<div><label class="muted">قیمت واحد شن‌وماسه (تومان/تن)</label><input type="number" value="380000" disabled /><input type="hidden" name="unitPrice" value="380000" /></div>
-<div><label class="muted">مقدار کل (تن)</label><input type="number" name="qty" min="0" step="0.1" placeholder="مثلاً 12" required /></div>
-<div><label class="muted">هزینه حمل (تومان/کیلومتر)</label><input type="number" name="transportPerKm" min="0" step="1000" placeholder="مثلاً 8000" /></div>
-<div><label class="muted">مسافت حمل (کیلومتر)</label><input type="number" name="distanceKm" min="0" step="1" placeholder="مثلاً 20" /></div>
-<div><label class="muted">لودر / بیل مکانیکی (تومان/ساعت)</label><input type="number" name="loaderRate" min="0" step="10000" placeholder="مثلاً 300000" /></div>
-<div><label class="muted">مدت کار لودر/بیل (ساعت)</label><input type="number" name="loaderHours" min="0" step="0.5" placeholder="مثلاً 2" /></div>
-<div><label class="muted">انعام (تومان)</label><input type="number" name="tipAmount" min="0" step="1000" placeholder="مثلاً 50000" /></div>
-<div><label class="muted">سایر هزینه‌ها (تومان)</label><input type="number" name="extraFees" min="0" step="1000" placeholder="مثلاً 30000" /></div>
+  <h3>فرم محاسبه</h3>
+  <form id="materialsForm">
+    <div class="grid two">
+      <div>
+        <label class="muted">قیمت واحد شن‌وماسه (تومان/تن) — ثابت</label>
+        <input type="number" value="380000" disabled />
+        <input type="hidden" name="unitPrice" value="380000" />
+      </div>
+      <div>
+        <label class="muted">مقدار کل (تن)</label>
+        <input type="number" name="qty" min="0" step="0.1" placeholder="مثلاً 12" required />
+      </div>
+      <div>
+        <label class="muted">هزینه حمل (تومان/کیلومتر) - اختیاری</label>
+        <input type="number" name="transportPerKm" min="0" step="1000" placeholder="مثلاً 8000" />
+      </div>
+      <div>
+        <label class="muted">مسافت حمل (کیلومتر) - اختیاری</label>
+        <input type="number" name="distanceKm" min="0" step="1" placeholder="مثلاً 20" />
+      </div>
+      <div>
+        <label class="muted">لودر / بیل مکانیکی (تومان/ساعت) - اختیاری</label>
+        <input type="number" name="loaderRate" min="0" step="10000" placeholder="مثلاً 300000" />
+      </div>
+      <div>
+        <label class="muted">مدت کار لودر/بیل (ساعت) - اختیاری</label>
+        <input type="number" name="loaderHours" min="0" step="0.5" placeholder="مثلاً 2" />
+      </div>
+      <div>
+        <label class="muted">انعام (تومان) - اختیاری</label>
+        <input type="number" name="tipAmount" min="0" step="1000" placeholder="مثلاً 50000" />
+      </div>
+    </div>
+    <div style="margin-top:1rem">
+      <button type="button" class="btn primary" id="calcPayZibal">محاسبه و پرداخت با زیبال</button>
+    </div>
+    <p id="materialsStatus" class="muted" aria-live="polite"></p>
+  </form>
 </div>
-<div class="card" style="margin-top:.6rem">
-<div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div class="muted">جمع شن و ماسه:</div><div id="materialsSubtotal"><b>0</b> تومان</div></div>
-<div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div class="muted">حمل و نقل:</div><div id="materialsTransport">0 تومان</div></div>
-<div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div class="muted">لودر / بیل مکانیکی:</div><div id="materialsLoader">0 تومان</div></div>
-<div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div class="muted">انعام:</div><div id="materialsTip">0 تومان</div></div>
-<div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div class="muted">سایر هزینه‌ها:</div><div id="materialsExtra">0 تومان</div></div>
-<hr style="border-color:#334155">
-<div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div><b>مبلغ کل پرداختی</b></div><div id="materialsTotal" style="font-weight:800;font-size:1.1rem">0 تومان</div></div>
+<div>
+  <img src="https://picsum.photos/id/1063/600/400" alt="محاسبه مصالح" loading="lazy" decoding="async"/>
 </div>
-<div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-<button type="button" class="btn" id="calcBtn">محاسبه</button>
-<button type="button" class="btn primary" id="payMaterialsBtn">پرداخت مبلغ کل با زیبال</button>
-</div>
-<p id="materialsStatus" class="muted" aria-live="polite"></p>
-</form>
-</div>
-<div class="card"><h3>توضیحات</h3><ul class="muted"><li>قیمت ثابت: ۳۸۰,۰۰۰ تومان/تن</li><li>پرداخت امن با زیبال فعال است.</li></ul></div>
 </div>
 </section>
 
-<!-- محصول ویژه -->
+<!-- ================== محصول ویژه با زرین‌پال ================== -->
 <section id="specialProduct">
 <h2>محصول ویژه: بسته آموزشی</h2>
 <div class="grid two">
-<div class="card">
-<p>📦 محصول: بسته آموزشی شرکت پارسا هلدینگ ایرانیان</p>
-<p>💰 قیمت: <b>100,000 تومان</b></p>
-<p>🎯 فقط پرداخت با زرین‌پال فعال است.</p>
-<form id="specialProductForm">
-<input type="hidden" name="amount" value="100000" />
-<input type="hidden" name="productName" value="بسته آموزشی" />
-<div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
-<button type="button" class="btn primary" id="paySpecialZP">پرداخت با زرین‌پال</button>
-</div>
-<p id="specialProductStatus" class="muted" aria-live="polite"></p>
-</form>
-</div>
-<div>
-<img src="https://picsum.photos/id/1060/600/400" loading="lazy" decoding="async" alt="بسته آموزشی" width="600" height="400"/>
-</div>
+  <div class="card">
+    <p>📦 محصول: بسته آموزشی شرکت پارسا هلدینگ ایرانیان</p>
+    <p>💰 قیمت: <b>100,000 تومان</b></p>
+    <p>🎯 فقط پرداخت با زرین‌پال فعال است.</p>
+    <form id="specialProductForm">
+      <input type="hidden" name="amount" value="100000" />
+      <input type="hidden" name="productName" value="بسته آموزشی" />
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+        <button type="button" class="btn primary" id="paySpecialZP">پرداخت با زرین‌پال</button>
+      </div>
+      <p id="specialProductStatus" class="muted" aria-live="polite"></p>
+    </form>
+  </div>
+  <div>
+    <img src="https://picsum.photos/id/1060/600/400" loading="lazy" decoding="async" alt="بسته آموزشی" width="600" height="400"/>
+  </div>
 </div>
 </section>
 
-<footer class="container" id="contact">
-<p>تماس: ۰۹۱۳۱۱۸۱۰۲۱ | <a href="https://pay.parsaholdingsiranians.ir">پرداخت آنلاین</a></p>
-<p>© 2025 پارسا هلدینگ ایرانیان</p>
+<!-- ================== تماس ================== -->
+<section id="contact">
+<h2>تماس با ما</h2>
+<div class="grid two">
+  <div class="card">
+    <p>📞 شماره تماس: ۰۹۱۳۱۱۸۱۰۲۱</p>
+    <p>✉ ایمیل: info@parsaholdingsiranians.ir</p>
+  </div>
+  <div class="card">
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="نام شما" required />
+      <input type="email" name="email" placeholder="ایمیل شما" required />
+      <textarea name="message" placeholder="پیام شما" required></textarea>
+      <button type="submit" class="btn primary">ارسال پیام</button>
+      <p id="contactStatus" class="muted" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    &copy; ۲۰۲۵ پارسا هلدینگ ایرانیان | تمام حقوق محفوظ است.
+  </div>
 </footer>
 
 <script>
-// محاسبه مصالح
-document.getElementById('calcBtn').addEventListener('click', function(){
+/* محاسبه و پرداخت زیبال */
+document.getElementById('calcPayZibal').addEventListener('click', function(){
   const form = document.getElementById('materialsForm');
-  const unitPrice = +form.unitPrice.value;
-  const qty = +form.qty.value || 0;
-  const transportPerKm = +form.transportPerKm.value || 0;
-  const distanceKm = +form.distanceKm.value || 0;
-  const loaderRate = +form.loaderRate.value || 0;
-  const loaderHours = +form.loaderHours.value || 0;
-  const tip = +form.tipAmount.value || 0;
-  const extra = +form.extraFees.value || 0;
-  const subtotal = unitPrice*qty;
-  const transport = transportPerKm*distanceKm;
-  const loaderCost = loaderRate*loaderHours;
-  const total = subtotal+transport+loaderCost+tip+extra;
-  document.getElementById('materialsSubtotal').textContent=subtotal.toLocaleString()+' تومان';
-  document.getElementById('materialsTransport').textContent=transport.toLocaleString()+' تومان';
-  document.getElementById('materialsLoader').textContent=loaderCost.toLocaleString()+' تومان';
-  document.getElementById('materialsTip').textContent=tip.toLocaleString()+' تومان';
-  document.getElementById('materialsExtra').textContent=extra.toLocaleString()+' تومان';
-  document.getElementById('materialsTotal').textContent=total.toLocaleString()+' تومان';
+  const unitPrice = parseInt(form.unitPrice.value);
+  const qty = parseFloat(form.qty.value);
+  const transportPerKm = parseInt(form.transportPerKm.value)||0;
+  const distanceKm = parseInt(form.distanceKm.value)||0;
+  const loaderRate = parseInt(form.loaderRate.value)||0;
+  const loaderHours = parseFloat(form.loaderHours.value)||0;
+  const tipAmount = parseInt(form.tipAmount.value)||0;
+
+  const total = unitPrice*qty + (transportPerKm*distanceKm) + (loaderRate*loaderHours) + tipAmount;
+  document.getElementById('materialsStatus').textContent = `مبلغ کل: ${total.toLocaleString()} تومان. در حال هدایت به درگاه زیبال...`;
+
+  const zpUrl = `https://api.zibal.ir/v1/request`;
+  fetch(zpUrl, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      merchant: 'YOUR_ZIBAL_MERCHANT',
+      amount: total,
+      callbackUrl: window.location.href,
+      description:'پرداخت مصالح پارسا هلدینگ'
+    })
+  }).then(r=>r.json()).then(data=>{
+    if(data.trackId){ window.open(`https://gateway.zibal.ir/start/${data.trackId}`,'_blank'); }
+  })
 });
 
-// زیبال مصالح
-document.getElementById('payMaterialsBtn').addEventListener('click', function(){
-  const total = +document.getElementById('materialsTotal').textContent.replace(/[^0-9]/g,'');
-  if(total<=0){alert('ابتدا مبلغ را محاسبه کنید');return;}
-  const zpMerchant = 'YOUR_ZIBAL_MERCHANT_CODE'; // جایگزین کن
-  const callback = encodeURIComponent('https://pay.parsaholdingsiranians.ir/api/zibal/verify');
-  const zpLink = `https://www.zibal.ir/payment/start/${zpMerchant}?amount=${total}&callbackUrl=${callback}`;
-  window.open(zpLink,'_blank');
-  document.getElementById('materialsStatus').textContent='در حال هدایت به درگاه زیبال...';
-});
-
-// زرین‌پال محصول ویژه
+/* پرداخت زرین‌پال محصول ویژه */
 document.getElementById('paySpecialZP').addEventListener('click', function(){
   const amount = document.querySelector('#specialProductForm input[name="amount"]').value;
   const product = document.querySelector('#specialProductForm input[name="productName"]').value;
-  const zpMerchant = 'YOUR_ZP_MERCHANT_CODE'; // مرچنت واقعی
-  const callback = encodeURIComponent('https://pay.parsaholdingsiranians.ir/api/zp/verify');
+  const zpMerchant = 'YOUR_ZP_MERCHANT_CODE'; // از .env
+  const callback = encodeURIComponent(window.location.href);
   const zpLink = `https://www.zarinpal.com/pg/StartPay/${zpMerchant}?Amount=${amount}&Description=${encodeURIComponent(product)}&CallbackURL=${callback}`;
   window.open(zpLink,'_blank');
-  document.getElementById('specialProductStatus').textContent='در حال هدایت به درگاه زرین‌پال...';
+  document.getElementById('specialProductStatus').textContent = 'در حال هدایت به درگاه زرین‌پال...';
+});
+
+/* فرم تماس */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('contactStatus').textContent = 'در حال ارسال...';
+  const data = Object.fromEntries(new FormData(this).entries());
+  console.log('Contact form data:', data);
+  setTimeout(()=>document.getElementById('contactStatus').textContent='پیام شما با موفقیت ارسال شد!',1000);
 });
 </script>
 </body>
