@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>شرکت پارسا هلدینگ ایرانیان | خدمات کشاورزی، دامداری، شهری، راه‌سازی و معدنی</title>
-  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی و مکانیزاسیون، دامداری، خدمات شهری، برنج‌کاری و سورتینگ، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال." />
+  <meta name="description" content="پارسا هلدینگ ایرانیان | خدمات کشاورزی و مکانیزاسیون، دامداری، خدمات شهری، برنج‌کاری و سورتینگ، راه‌سازی و فعالیت‌های معدنی. پرداخت آنلاین امن با زیبال و زرین‌پال." />
   <meta name="theme-color" content="#16a34a" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='none'%3E%3Ccircle cx='64' cy='64' r='60' fill='%2316a34a'/%3E%3Cg transform='translate(20 20)'%3E%3Cpath d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='%23041019' opacity='.25'/%3E%3Cpath d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='%23e2e8f0'/%3E%3Cpath d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='%23041019' opacity='.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet" />
@@ -52,7 +52,7 @@
   </header>
 
   <main class="container">
-    <!-- محاسبه و پرداخت مصالح (شن و ماسه) - یک آیتم -->
+    <!-- محاسبه و پرداخت مصالح (شن و ماسه) -->
     <section id="materials" style="background:linear-gradient(rgba(11,18,32,.6), rgba(11,18,32,.6)), url('https://picsum.photos/id/1050/1600/800') center/cover no-repeat; padding:2rem; border-radius:18px;">
       <h2>محاسبه و پرداخت مصالح (شن و ماسه)</h2>
       <div class="grid two">
@@ -125,7 +125,8 @@
 
             <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
               <button type="button" class="btn" id="calcBtn">محاسبه</button>
-              <button type="button" class="btn primary" id="payMaterialsBtn">پرداخت مبلغ کل با زیبال</button>
+              <button type="button" class="btn primary" id="payMaterialsZibal">پرداخت با زیبال</button>
+              <button type="button" class="btn primary" id="payMaterialsZP">پرداخت با زرین‌پال</button>
             </div>
             <p id="materialsStatus" class="muted" aria-live="polite"></p>
           </form>
@@ -190,197 +191,14 @@
           </div>
         </div>
         <div class="card">
-          <h3>پرداخت مستقیم با زیبال (مبلغ دلخواه)</h3>
-          <form id="zibalForm">
+          <h3>پرداخت مستقیم</h3>
+          <form id="directPaymentForm">
             <input type="number" name="amount" min="1000" step="1000" placeholder="مبلغ (تومان)" required />
             <input type="tel" name="mobile" placeholder="شماره موبایل (اختیاری)" />
             <input type="text" name="orderId" placeholder="کد سفارش (اختیاری)" />
             <textarea name="description" placeholder="توضیحات (اختیاری)"></textarea>
-            <button class="btn primary" type="submit">پرداخت با زیبال</button>
-            <p id="zibalStatus" class="muted" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container">
-    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-      <svg width="28" height="28" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="لوگو">
-        <g fill="none"><circle cx="64" cy="64" r="60" fill="#16a34a"/><g transform="translate(20 20)">
-          <path d="M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z" fill="#041019" opacity=".25"/>
-          <path d="M28 68c18 0 32-14 32-32C41 38 28 50 28 68z" fill="#e2e8f0"/>
-          <path d="M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z" fill="#041019" opacity=".5"/></g></g>
-      </svg>
-      <small>© <span id="year"></span> شرکت پارسا هلدینگ ایرانیان. همه حقوق محفوظ است.</small>
-    </div>
-  </footer>
-
-  <script>
-    // سال جاری
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // پرداخت دلخواه زیبال
-    const zibalForm = document.getElementById('zibalForm');
-    const zibalStatus = document.getElementById('zibalStatus');
-    zibalForm?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      zibalStatus.textContent = '';
-      const data = Object.fromEntries(new FormData(zibalForm));
-      const amountToman = Number(data.amount || 0);
-      if(!amountToman || amountToman < 1000){
-        zibalStatus.textContent = 'مبلغ معتبر وارد کنید (حداقل ۱,۰۰۰ تومان).'; return;
-      }
-      try{
-        const res = await fetch('/api/zibal/request', {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ amount: amountToman * 10, mobile: data.mobile||'', description: data.description||'', orderId: data.orderId||'' })
-        });
-        const json = await res.json();
-        if(json?.result === 100 && json?.trackId){ location.href = `https://gateway.zibal.ir/start/${json.trackId}`; }
-        else { zibalStatus.textContent = json?.message || 'خطا در ایجاد تراکنش'; }
-      }catch{ zibalStatus.textContent = 'ارتباط با سرور برقرار نشد.'; }
-    });
-
-    // ===== ماشین‌حساب شن‌وماسه (ارقام فارسی/عربی) =====
-    const form = document.getElementById("materialsForm");
-    const subtotalEl = document.getElementById("materialsSubtotal");
-    const transportEl = document.getElementById("materialsTransport");
-    const loaderEl = document.getElementById("materialsLoader");
-    const tipEl = document.getElementById("materialsTip");
-    const extraEl = document.getElementById("materialsExtra");
-    const totalEl = document.getElementById("materialsTotal");
-
-    const faToEn = (s='') => String(s)
-      .replace(/[\u06F0-\u06F9]/g, d => String(d.charCodeAt(0) - 0x06F0)) // ۰-۹ فارسی
-      .replace(/[\u0660-\u0669]/g, d => String(d.charCodeAt(0) - 0x0660)) // ٠-٩ عربی
-      .replace(/[٬،,\s]/g, '');                                          // جداکننده‌ها
-
-    const toNum = v => { const n = Number(faToEn(v)); return Number.isFinite(n) ? n : 0; };
-    const fmt = n => new Intl.NumberFormat('fa-IR').format(Math.max(0, Math.round(n||0)));
-
-    function calcTotals(){
-      const data = new FormData(form);
-      const unitPrice = 380000; // تومان/تن
-      const qty       = toNum(data.get('qty'));
-      const transport = toNum(data.get('transportPerKm')) * toNum(data.get('distanceKm'));
-      const loader    = toNum(data.get('loaderRate'))     * toNum(data.get('loaderHours'));
-      const tip       = toNum(data.get('tipAmount'));
-      const extra     = toNum(data.get('extraFees'));
-      const subtotal  = unitPrice * qty;
-      const total     = subtotal + transport + loader + tip + extra;
-      return {subtotal, transport, loader, tip, extra, total, qty};
-    }
-
-    function update(){
-      const {subtotal, transport, loader, tip, extra, total} = calcTotals();
-      subtotalEl.innerHTML   = `<b>${fmt(subtotal)}</b> تومان`;
-      transportEl.textContent= `${fmt(transport)} تومان`;
-      loaderEl.textContent   = `${fmt(loader)} تومان`;
-      tipEl.textContent      = `${fmt(tip)} تومان`;
-      extraEl.textContent    = `${fmt(extra)} تومان`;
-      totalEl.textContent    = `${fmt(total)} تومان`;
-    }
-    form?.addEventListener('input', update);
-    document.getElementById('calcBtn')?.addEventListener('click', update);
-
-    // پرداخت بر اساس محاسبه مستقیم (نه خواندن متن صفحه)
-    document.getElementById('payMaterialsBtn')?.addEventListener('click', async ()=>{
-      const { total, qty } = calcTotals(); // تومان
-      if(total < 1000){ alert('مبلغ کل کمتر از ۱,۰۰۰ تومان است.'); return; }
-      try{
-        const res = await fetch('/api/zibal/request', {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({
-            amount: Math.round(total) * 10, // تومان → ریال
-            description: `خرید ${qty} تن شن و ماسه با نرخ ۳۸۰,۰۰۰ تومان/تن + هزینه‌های جانبی`,
-            orderId: `MAT-${Date.now()}`
-          })
-        });
-        const json = await res.json();
-        if(json?.result === 100 && json?.trackId){ location.href = `https://gateway.zibal.ir/start/${json.trackId}`; }
-        else { alert(json?.message || 'خطا در ایجاد تراکنش'); }
-      }catch{ alert('ارتباط با سرور برقرار نشد.'); }
-    });
-
-    update(); // مقداردهی اولیه
-  </script>
-
-  <!-- ========= APIهای لازم برای Vercel ========= -->
-  <script type="text/plain" data-filename="api/zibal/request.js">export const config = { runtime: 'edge' };
-export default async function handler(req) {
-  if (req.method !== 'POST') return new Response('Method Not Allowed', { status: 405 });
-  const body = await req.json();
-  const amount = Number(body.amount || 0);
-  const mobile = body.mobile || '';
-  const description = body.description || '';
-  const orderId = body.orderId || '';
-  if (!amount || amount < 1000) {
-    return new Response(JSON.stringify({ result: -1, message: 'amount (rial) required' }), { status: 400, headers: { 'Content-Type': 'application/json' }});
-  }
-  const merchant = process.env.ZIBAL_MERCHANT;
-  if (!merchant) {
-    return new Response(JSON.stringify({ result: -1, message: 'Missing ZIBAL_MERCHANT' }), { status: 500, headers: { 'Content-Type': 'application/json' }});
-  }
-  const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '');
-  const callbackUrl = `${base}/api/zibal/verify`;
-  const res = await fetch('https://gateway.zibal.ir/v1/request', {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({ merchant, amount, callbackUrl, orderId, description, mobile })
-  });
-  const data = await res.json();
-  return new Response(JSON.stringify(data), { status: res.ok ? 200 : 500, headers: { 'Content-Type': 'application/json' }});
-}
-</script>
-
-  <script type="text/plain" data-filename="api/zibal/verify.js">export const config = { runtime: 'edge' };
-const brandSVG = \`
-<svg width="48" height="48" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-label="لوگو">
-  <g fill='none'><circle cx='64' cy='64' r='60' fill='#16a34a'/>
-    <g transform='translate(20 20)'>
-      <path d='M44 64c14-6 24-18 26-34c-14 2-26 12-30 26c-2 6-2 8-2 8z' fill='#041019' opacity='.25'/>
-      <path d='M28 68c18 0 32-14 32-32C41 38 28 50 28 68z' fill='#e2e8f0'/>
-      <path d='M44 14l6 2l4-4l6 2l2 6l6 2v6l-6 2l-2 6l-6 2l-4-4l-6 2l-4-6l-6-2v-6l6-2l4-6z' fill='#041019' opacity='.5'/>
-    </g></g>
-</svg>\`;
-const html = (ok, trackId, orderId, message) => \`<!doctype html>
-<html lang='fa' dir='rtl'><meta charset='utf-8'><title>نتیجه پرداخت</title>
-<style>body{font-family:Tahoma,Arial;display:grid;place-items:center;height:100vh;background:#0b1220;color:#e2e8f0;margin:0}
-.card{max-width:560px;background:#0f172a;border:1px solid #334155;border-radius:14px;padding:20px;text-align:center}
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:\${ok?'#16a34a':'#ef4444'};color:#041019;font-weight:700}
-a.btn{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:12px;background:#22c55e;color:#041019;text-decoration:none}
-.logo{display:grid;place-items:center;margin-bottom:10px}</style>
-<div class='card'><div class='logo'>\${brandSVG}</div>
-<span class='badge'>\${ok?'موفق':'ناموفق'}</span><h1>نتیجه پرداخت</h1>
-<p>\${message ?? ''}</p><p>شماره پیگیری: <b>\${trackId ?? '-'}</b></p><p>کد سفارش: <b>\${orderId ?? '-'}</b></p>
-<a class='btn' href='/'>بازگشت به سایت</a></div></html>\`;
-export default async function handler(req) {
-  const url = new URL(req.url);
-  const trackId = url.searchParams.get('trackId');
-  if (!trackId) return new Response(html(false, null, null, 'trackId یافت نشد'), { headers: { 'Content-Type': 'text/html; charset=utf-8' }});
-  const merchant = process.env.ZIBAL_MERCHANT;
-  if (!merchant) return new Response(html(false, null, null, 'merchant تنظیم نشده'), { headers: { 'Content-Type': 'text/html; charset=utf-8' }});
-  const res = await fetch('https://gateway.zibal.ir/v1/verify', {
-    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ merchant, trackId })
-  });
-  const data = await res.json();
-  const ok = data?.result === 100;
-  return new Response(html(ok, String(trackId), data?.orderId ? String(data.orderId) : '', data?.message), {
-    headers: { 'Content-Type': 'text/html; charset=utf-8' }, status: 200
-  });
-}
-const res = await fetch("/api/zarinpal/request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: total })
-      });
-
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("خطا در اتصال به زرین‌پال");
-}
-</script>
-</body>
-</html>
+            <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+              <button class="btn primary" type="button" id="payDirectZibal">پرداخت با زیبال</button>
+              <button class="btn primary" type="button" id="payDirectZP">پرداخت با زرین‌پال</button>
+            </div>
+            <p
