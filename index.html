@@ -51,6 +51,43 @@
     </div>
   </header>
 
+<!-- محصول ویژه -->
+<section id="specialProduct">
+  <h2>محصول ویژه: بسته آموزشی</h2>
+  <div class="grid two">
+    <div class="card">
+      <p>📦 محصول: بسته آموزشی شرکت پارسا هلدینگ ایرانیان</p>
+      <p>💰 قیمت: <b>100,000 تومان</b></p>
+      <p>🎯 فقط پرداخت با زرین‌پال فعال است.</p>
+      <form id="specialProductForm">
+        <input type="hidden" name="amount" value="100000" />
+        <input type="hidden" name="productName" value="بسته آموزشی" />
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+          <button type="button" class="btn primary" id="paySpecialZP">پرداخت با زرین‌پال</button>
+        </div>
+        <p id="specialProductStatus" class="muted" aria-live="polite"></p>
+      </form>
+    </div>
+    <div>
+      <img src="https://picsum.photos/id/1060/600/400" loading="lazy" decoding="async" alt="بسته آموزشی" width="600" height="400"/>
+    </div>
+  </div>
+</section>
+
+<script>
+  // زرین پال محصول ویژه
+  document.getElementById('paySpecialZP').addEventListener('click', function(){
+    const amount = document.querySelector('#specialProductForm input[name="amount"]').value;
+    const product = document.querySelector('#specialProductForm input[name="productName"]').value;
+    // لینک زرین پال
+    const zpMerchant = 'YOUR_ZP_MERCHANT_CODE';
+    const callback = encodeURIComponent(window.location.href);
+    const zpLink = `https://www.zarinpal.com/pg/StartPay/${zpMerchant}?Amount=${amount}&Description=${encodeURIComponent(product)}&CallbackURL=${callback}`;
+    window.open(zpLink,'_blank');
+    document.getElementById('specialProductStatus').textContent = 'در حال هدایت به درگاه زرین‌پال...';
+  });
+</script>
+
   <main class="container">
     <!-- محاسبه و پرداخت مصالح (شن و ماسه) -->
     <section id="materials" style="background:linear-gradient(rgba(11,18,32,.6), rgba(11,18,32,.6)), url('https://picsum.photos/id/1050/1600/800') center/cover no-repeat; padding:2rem; border-radius:18px;">
