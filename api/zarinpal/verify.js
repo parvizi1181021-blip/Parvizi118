@@ -1,37 +1,37 @@
 export default async function handler(req, res) {
   if (req.method !== "GET") return res.status(405).end();
 
-  const { Authority, Status, amount } = req.query;
-  if (!Authority || !Status) return res.status(400).send("اطلاعات بازگشتی نامعتبر است.");
+  const { Authority, Status } = req.query;
 
+  // اگر کاربر تراکنش رو لغو کرده باشه
   if (Status !== "OK") {
-    return res.status(400).send("پرداخت توسط کاربر لغو شد.");
+    return res.status(200).send("<h2>❌ پرداخت توسط کاربر لغو شد.</h2>");
   }
 
-  try {
-    const response = await fetch("https://api.zarinpal.com/pg/v4/payment/verify.json", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        merchant_id: "7b9a76db-61b3-4079-84f9-b79aaa7f261d", // 👈 Merchant ID
-        amount: amount || 1000, // اینو می‌تونی دقیق‌تر مدیریت کنی
-        authority: Authority
-      })
-    });
+  // ارسال به زرین‌پال برای بررسی
+  const response = await fetch("https://api.zarinpal.com/pg/v4/payment/verify.json", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      merchant_id: process.env.ZP_MERCHANT,
+      authority: Authority,
+      amount: 100000 // مبلغ باید دقیقا همونی باشه که تو Request بود
+    })
+  });
 
-    const data = await response.json();
-    if (data.data && data.data.code === 100) {
-      return res.status(200).send(`
-        <html lang="fa"><head><meta charset="utf-8"></head>
-        <body style="text-align:center; font-family:tahoma">
-          <h2 style="color:green;">✅ پرداخت موفق بود</h2>
-          <p>کد پیگیری: <b>${data.data.ref_id}</b></p>
-        </body></html>
-      `);
-    } else {
-      return res.status(400).send("پرداخت ناموفق");
-    }
-  } catch (err) {
-    return res.status(500).send("خطای سرور: " + err.message);
+  const result = await response.json();
+
+  if (result.data && result.data.code === 100) {
+    // ✅ پرداخت موفق
+    return res.status(200).send(`
+      <h2>✅ پرداخت موفق بود</h2>
+      <p>کد پیگیری: <b>${result.data.ref_id}</b></p>
+    `);
+  } else if (result.data && result.data.code === 101) {
+    // تراکنش قبلاً تایید شده
+    return res.status(200).send("<h2>ℹ️ این تراکنش قبلاً تایید شده است.</h2>");
+  } else {
+    // ❌ خطا در پرداخت
+    return res.status(400).send("<h2>❌ پرداخت ناموفق بود.</h2>");
   }
 }
