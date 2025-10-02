@@ -190,7 +190,7 @@ document.getElementById('calcPayZibal').addEventListener('click', function(){
 document.getElementById('paySpecialZP').addEventListener('click', function(){
   const amount = document.querySelector('#specialProductForm input[name="amount"]').value;
   const product = document.querySelector('#specialProductForm input[name="productName"]').value;
-  const zpMerchant = 'YOUR_ZP_MERCHANT_CODE'; // از .env
+  const zpMerchant = 'YOUR_ZP_MERCHANT'; // از .env
   const callback = encodeURIComponent(window.location.href);
   const zpLink = `https://www.zarinpal.com/pg/StartPay/${zpMerchant}?Amount=${amount}&Description=${encodeURIComponent(product)}&CallbackURL=${callback}`;
   window.open(zpLink,'_blank');
