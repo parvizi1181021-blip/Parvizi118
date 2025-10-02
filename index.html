@@ -51,7 +51,7 @@
     </div>
   </header>
 
-<!-- محصول ویژه -->
+<!-- محصول ویژه --><!-- محصول ویژه -->
 <section id="specialProduct">
   <h2>محصول ویژه: بسته آموزشی</h2>
   <div class="grid two">
@@ -75,6 +75,24 @@
 </section>
 
 <script>
+  document.getElementById('paySpecialZP').addEventListener('click', async function(){
+    document.getElementById('specialProductStatus').textContent = "در حال اتصال به زرین‌پال...";
+    const res = await fetch("/api/zp/request", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        amount: 100000,
+        description: "بسته آموزشی"
+      })
+    });
+    const data = await res.json();
+    if(data.url){
+      window.location.href = data.url; // هدایت به درگاه
+    } else {
+      document.getElementById('specialProductStatus').textContent = "خطا در اتصال به زرین‌پال: " + data.error;
+    }
+  });
+</script>
   // زرین پال محصول ویژه
   document.getElementById('paySpecialZP').addEventListener('click', function(){
     const amount = document.querySelector('#specialProductForm input[name="amount"]').value;
