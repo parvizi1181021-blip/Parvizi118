@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        merchant_id: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // 👈 Merchant ID
+        merchant_id: "7b9a76db-61b3-4079-84f9-b79aaa7f261d", // 👈 Merchant ID
         amount: amount || 1000, // اینو می‌تونی دقیق‌تر مدیریت کنی
         authority: Authority
       })
